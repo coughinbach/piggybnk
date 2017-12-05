@@ -1,0 +1,36 @@
+.banner {
+  //background-image: image-url('home-banner.jpg');
+  background-image: image-url('home-banner.jpg');;
+  text-align: center;
+  height: 100vh;
+  background-size: cover !important;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tagline {
+  display: flex;
+  justify-content: center;
+  height: 600px;
+  width: 100%;
+  flex-direction: column;
+  text-align: center;
+  p {
+    color: white;
+    font-family: Open Sans;
+    font-size: 18px;
+    text-shadow: 0px 0px 10px #777;
+    color: #fff;
+
+  }
+  h1 {
+    color: white;
+    font-family: Open Sans;
+    font-size: 38px;
+    text-shadow: 0px 0px 1px #777;
+    color: #fff;
+
+  }
+}
