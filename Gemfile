@@ -18,6 +18,7 @@ gem 'uglifier'
 gem 'webpacker'
 
 gem 'money-rails'
+gem 'faker'
 
 group :development, :test do
   gem 'pry-byebug'
