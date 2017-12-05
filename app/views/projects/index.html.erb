@@ -1,0 +1,5 @@
+<% @projects.each do |project| %>
+  <%= link_to project.name, project_path(project) %>
+  <%= project.goal_amount_total_cents %>
+  <%= project.due_date %>
+<% end %>

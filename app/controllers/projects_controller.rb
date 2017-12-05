@@ -2,12 +2,12 @@ class ProjectsController < ApplicationController
 
   def index
     @userprojects = UserProject.where(user: current_user)
-    @projects = @userprojects.each { |u_p| u_p.project }
+    @projects = @userprojects.map { |u_p| u_p.project }
   end
 
   def show
     @project = Project.find(params[:id])
-    @userproject = @project.user_projects
+    @userproject = @project.user_projects.where(user: current_user)
   end
 
   def new
