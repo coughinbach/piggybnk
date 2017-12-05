@@ -19,8 +19,13 @@ p "users done"
 
 p "creating projects"
 project1 = Project.create(name: "Project 1", goal_amount_total_cents: 200, due_date: (Date.today + 10))
+project2 = Project.create(name: "Project 2", goal_amount_total_cents: 200, due_date: (Date.today + 10))
+project3 = Project.create(name: "Project 3", goal_amount_total_cents: 200, due_date: (Date.today + 10))
+
 p "projects done"
 
 p "creating userprojects"
 userproject1 = UserProject.create(user: user1, project: project1)
+userproject2 = UserProject.create(user: user2, project: project1)
+userproject3 = UserProject.create(user: user1, project: project2)
 p "userprojects done"
