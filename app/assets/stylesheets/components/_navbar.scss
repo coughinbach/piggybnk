@@ -79,3 +79,14 @@
   border-left: 1px solid #E6E6E6;
   border-top: 1px solid #E6E6E6;
 }
+
+/* Go back */
+.go-back {
+  height: 50px;
+  width: 50px;
+  text-align: center;
+  border-radius: 100px;
+  border: solid;
+  border-style: solid;
+  border-color: $white
+}
