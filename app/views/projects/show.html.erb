@@ -1,4 +1,19 @@
-<%= @project.name %>
-<%= @project.description %>
-<%= @project.due_date %>
-<%= @userproject.withdrawal_amount_total_cents %>
+Project name: <%= @project.name %>
+<br>
+Description: <%= @project.description %>
+<br>
+Goal amount: <%= @project.goal_amount_total_cents %>€
+<br>
+Due date: <%= @project.due_date %>
+<br>
+Daily piggy deposit: <%= @userproject.withdrawal_amount_total_cents %>€
+<br>
+Current piggy bank level: <%= @userproject.saved_amount_solo_cents %>€
+
+<%= link_to edit_project_path(@project), class: "btn btn-primary" do %>
+  <i class="fa fa-pencil" aria-hidden="true"></i>
+<% end %>
+
+<%= link_to project_path(@project), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-primary" do %>
+  <i class="fa fa-trash-o" aria-hidden="true"></i>
+<% end %>

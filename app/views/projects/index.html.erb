@@ -1,5 +1,7 @@
 <% @projects.each do |project| %>
   <%= link_to project.name, project_path(project) %>
-  <%= project.goal_amount_total_cents %>
-  <%= project.due_date %>
+  Goal amount: <%= project.goal_amount_total_cents %>
+  Due date: <%= project.due_date %>
+  <br>
 <% end %>
+<%= link_to "Add project", new_project_path, class: "btn btn-primary" %>

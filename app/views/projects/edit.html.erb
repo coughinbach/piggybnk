@@ -1,0 +1,7 @@
+<%= simple_form_for [@project] do |f| %>
+  <%= f.input :name%>
+  <%= f.input :description %>
+  <%= f.input :due_date %>
+  <%= f.input :goal_amount_total_cents %>
+  <%= f.submit "Save project", class: "btn btn-primary" %>
+<% end %>
