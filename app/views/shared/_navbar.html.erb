@@ -1,6 +1,6 @@
 <div class="navbar-wagon">
 <div class="go-back"><h6><%= link_to "<", root_path%></h6></div>
-<h1>🐽</h1>
+<div class="logo-pig"><h1><%= link_to "🐽", root_path%></h1></div>
 
   <!-- Right Navigation -->
   <div class="navbar-wagon-right hidden-xs hidden-sm">
@@ -8,14 +8,15 @@
     <% if user_signed_in? %>
 
       <!-- Links when logged in -->
+      <%= link_to "Dashboard", "#", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Profile", "#", class: "navbar-wagon-item navbar-wagon-link" %>
-      <%= link_to "Trips", "#", class: "navbar-wagon-item navbar-wagon-link" %>
       <%= link_to "Log out", "#", class: "navbar-wagon-item navbar-wagon-link" %>
 
       <!-- Avatar with dropdown menu -->
       <div class="navbar-wagon-item">
         <div class="dropdown">
-          <%= image_tag "http://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
+          <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/30x30" %>
+          <%= image_tag avatar_url, class: "avatar dropdown-toggle", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
             <li>
               <%= link_to "#" do %>
@@ -55,7 +56,7 @@
 
   <!-- Logo -->
   <%= link_to root_path, class: "navbar-wagon-brand" do %>
-    <%= image_tag "avatar.jpg" %>
+    <%= image_tag "logo.png" %>
   <% end %>
 </div>
 
