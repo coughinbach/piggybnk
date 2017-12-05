@@ -2,3 +2,8 @@
 <%= @project.description %>
 <%= @project.due_date %>
 <%= @userproject.withdrawal_amount_total_cents %>
+
+
+<%= link_to project_path(@project), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-primary" do %>
+<i class="fa fa-trash-o" aria-hidden="true"></i>
+              <% end %>
