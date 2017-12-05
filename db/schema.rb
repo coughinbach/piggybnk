@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20171205143110) do
 
+
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -27,7 +28,7 @@ ActiveRecord::Schema.define(version: 20171205143110) do
   end
 
   create_table "user_projects", force: :cascade do |t|
-    t.boolean "admin", default: false
+    t.boolean "project_admin", default: false
     t.bigint "user_id"
     t.bigint "project_id"
     t.datetime "created_at", null: false
