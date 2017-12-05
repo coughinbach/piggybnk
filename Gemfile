@@ -20,6 +20,8 @@ gem 'webpacker'
 gem 'money-rails'
 gem 'faker'
 
+gem 'omniauth-facebook'
+
 group :development, :test do
   gem 'pry-byebug'
   gem 'pry-rails'
