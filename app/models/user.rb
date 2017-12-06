@@ -30,7 +30,7 @@ class User < ApplicationRecord
 
   has_many :user_projects, dependent: :destroy
   has_many :projects, through: :user_projects
-  validates :username, presence: true, uniqueness: true
+  validates :username, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
 end
