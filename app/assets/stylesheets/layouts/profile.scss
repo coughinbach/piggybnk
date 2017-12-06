@@ -2,20 +2,34 @@
   min-height: calc(100vh - 170px);
   margin: 20px 20px;
 }
-
+#summary {
+  //width:300px;
+}
 .credit-card {
   position: relative;
-  min-height: 100px;
+  min-height: 150px;
+  width: 260px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: $white;
+  margin: 0 auto;
+}
+#intro {
+  margin: 0 0 5px 0;
 }
 
-#card-type {
+#card-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
   position: absolute;
-  top: 10px;
+  top: 5px;
   left: 5px;
 }
 
-#expiration {
-  position: absolute;
-  bottom: 10px;
-  left: 5px;
+#card-icon {
+  position:absolute;
+  bottom: -5px;
+  right: 5px;
+  height: 60px;
 }
