@@ -19,7 +19,7 @@
   border-color: $white
 }
 
-.logo {
+.logo-pig a:hover {
   text-decoration: none;
 }
 
@@ -93,6 +93,10 @@
   border: solid;
   border-style: solid;
   border-color: $white
+}
+
+.go-back a:hover {
+  text-decoration: none;
 }
 
 .go-back h6 {
