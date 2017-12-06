@@ -22,6 +22,7 @@ gem 'webpacker'
 gem 'money-rails'
 gem 'faker'
 gem 'coffee-script'
+gem 'stripe'
 
 gem 'omniauth-facebook'
 
