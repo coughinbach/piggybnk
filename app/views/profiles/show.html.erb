@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="profile">
+    <div class="row">
+      <div class="col-xs-4">
+        <% avatar_url = current_user.facebook_picture_url || "http://placehold.it/180x180" %>
+        <%= image_tag avatar_url %>
+      </div>
+      <div class="col-xs-4">
+        <h2>Hey, I'm <%= current_user.first_name %></h2>
+        <p>I'm saving for <%= current_user.user_projects.count %> beautiful projects:</p>
+        <ul>
+          <% current_user.user_projects.each do |user_project| %>
+          <li><%= user_project.project.name %></li>
+          <% end %>
+        </ul>
+        <div class="credit-card">
+          <% if current_user.credit_card %>
+            <p id="card-type"><%= current_user.credit_card.first["brand"] %> xxxx xxxx xxxx <%= current_user.credit_card.first["last4"] %></p>
+            <p id="expiration"><%= current_user.credit_card.first["exp_month"] %>/<%= current_user.credit_card.first["exp_year"] %></p>
+            <% if current_user.credit_card.first["brand"] == "Visa" %>
+              <%= image_tag("/assets/images/cards/Visa-icon.png")  %>
+            <% end %>
+          <% else %>
+            <%= form_tag creditcard_path do %>
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                data-name="My CC"
+                data-email="<%= current_user.email %>"
+                data-amount="0"
+                data-currency="EUR">
+              </script>
+            <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

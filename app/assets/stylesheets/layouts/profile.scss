@@ -1,0 +1,21 @@
+.profile {
+  min-height: calc(100vh - 170px);
+  margin: 20px 20px;
+}
+
+.credit-card {
+  position: relative;
+  min-height: 100px;
+}
+
+#card-type {
+  position: absolute;
+  top: 10px;
+  left: 5px;
+}
+
+#expiration {
+  position: absolute;
+  bottom: 10px;
+  left: 5px;
+}

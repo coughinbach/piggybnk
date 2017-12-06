@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171205162408) do
+ActiveRecord::Schema.define(version: 20171206150626) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -54,13 +54,14 @@ ActiveRecord::Schema.define(version: 20171205162408) do
     t.string "username"
     t.string "first_name"
     t.string "last_name"
-    t.string "credit_card"
     t.text "bio"
     t.string "provider"
     t.string "uid"
     t.string "facebook_picture_url"
     t.string "token"
     t.datetime "token_expiry"
+    t.json "credit_card"
+    t.string "stripe_customer_id"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
