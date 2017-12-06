@@ -1,0 +1,46 @@
+.form-post {
+  background: white;
+  margin-top: 50px;
+  padding: 20px;
+  border-radius: 5px;
+  h1 {
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    color: #666666;
+    margin-bottom: 50px;
+    margin-top: 0px;
+  }
+  .btn {
+    width: 100%;
+    padding: 10px;
+    font-weight: bold;
+  }
+}
+
+// Checkboxes design
+.category-choices {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  margin: 20px 0;
+}
+
+.category-choice {
+  display: flex;
+  height: 146px;
+  flex: 0 0 48%;
+  margin-bottom: 20px;
+  align-items: flex-end;
+  background-size: cover;
+}
+
+.category-name {
+  width: 100%;
+  background-color: white;
+  opacity: 0.8;
+  padding: 5px 0px;
+  display: flex;
+  justify-content: center;
+  color: $purple;
+}

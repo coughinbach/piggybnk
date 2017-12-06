@@ -1,9 +1,50 @@
-<%= simple_form_for [@project] do |f| %>
-  <%= f.input :name%>
-  <%= f.input :description %>
-  <%= f.input :due_date %>
-  <%= f.input :goal_amount_total_cents %>
-  <%= f.association :users, as: :select, label_method: :username %>
-  <%= f.association :category, as: :radio_buttons %>
-  <%= f.submit "Add project", class: "btn btn-primary" %>
-<% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="form-post">
+        <h1>Add a Piggybnk</h1>
+        <%= simple_form_for [@project] do |f| %>
+        <div class="row">
+          <div class="col-xs-12">
+            <%= f.input :name%>
+          </div>
+          <div class="col-xs-12">
+            <%= f.input :due_date %>
+          </div>
+          <div class="col-xs-12">
+            <%= f.input :description %>
+          </div>
+          <div class="col-xs-12">
+            <%= f.input :goal_amount_total_cents %>
+          </div>
+          <div class="col-xs-12">
+            <%= f.association :users, as: :select, label_method: :username %>
+          </div>
+          <div class="col-xs-12">
+            <label class="control-label radio_buttons required"><abbr title="required">*</abbr> Category</label>
+            <input name="project[category_id]" value="" type="hidden">
+            <div class="category-choices">
+              <% Category.all.each do |category| %>
+              <div class="category-choice" style="background-image: url('<%= cl_image_path category.photo, width: 146 %>')">
+                <input class="radio_buttons required hidden" value="<%= category.id %>" name="project[category_ids][]" id="project_category_ids_<%= category.id %>" type="radio">
+                <div class="category-name">
+                  <label for="project_category_ids_<%= category.id %>">
+                    <%= category.name %>
+                  </label>
+                </div>
+              </div>
+              <% end %>
+            </div>
+
+          </div>
+          <%= f.submit "Add project", class: "btn btn-primary" %>
+        <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<%#= f.association :category, as: :radio_buttons %>
+
+
