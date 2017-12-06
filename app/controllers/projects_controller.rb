@@ -17,8 +17,8 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     if @project.save
-      formula = (@project.goal_amount_total_cents / (@project.due_date - Date.today)) #add goal - current / days
-      @userproject = UserProject.create(user: current_user, project: @project, project_admin: true, withdrawal_amount_total_cents: formula)
+      formula = (@project.goal_amount_total_cents / (@project.due_date - Date.today))
+      @userproject = UserProject.create(user: current_user, project: @project, project_admin: true, goal_amount_solo_cents: @project.goal_amount_total_cents, withdrawal_amount_total_cents: formula)
       redirect_to project_path(@project)
     else
       render :new
@@ -31,8 +31,15 @@ class ProjectsController < ApplicationController
 
   def update
     @project = Project.find(params[:id])
+    @userproject = @project.user_projects.where(user: current_user).first
+
+    # iterate through all @project.user_projects.saved_amount_solo_cents for each collaborator and add all values to collective piggy bank
+    # @allpiggies = @project.saved_amount_total_cents
+    # @project.user_projects.each { |u_p| @allpiggies += u_p.saved_amount_solo_cents }
+
     if @project.update(project_params)
-      formula = (@project.goal_amount_total_cents / (@project.due_date - Date.today)) #add goal - current / days
+      @userproject.update(goal_amount_solo_cents: @project.goal_amount_total_cents)
+      formula = (@userproject.goal_amount_solo_cents - @userproject.saved_amount_solo_cents) / (@project.due_date - Date.today)
       @project.user_projects.first.update(withdrawal_amount_total_cents: formula)
       redirect_to project_path(@project)
     else

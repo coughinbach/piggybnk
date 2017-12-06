@@ -2,14 +2,23 @@ Project name: <%= @project.name %>
 <br>
 Description: <%= @project.description %>
 <br>
-Goal amount: <%= @project.goal_amount_total_cents %>€
-<br>
 Due date: <%= @project.due_date %>
+<br>
+Group goal amount: <%= @project.goal_amount_total_cents %>€
+<br>
+Solo goal for <%= @project.name %>: <%= @userproject.goal_amount_solo_cents %>€
+<br>
+Current solo piggy bank level (for me): <%= @userproject.saved_amount_solo_cents %>€
+<br>
+Current collective piggy bank level (for group): <%= @project.saved_amount_total_cents %>€
 <br>
 Daily piggy deposit: <%= @userproject.withdrawal_amount_total_cents %>€
 <br>
-Current piggy bank level: <%= @userproject.saved_amount_solo_cents %>€
-
+<%= @project.user_projects.count %> Piggy collaborators for <%= @project.name %> :
+<% @project.user_projects.each do |userproject| %>
+  <%= userproject.user.first_name %>
+<% end %>
+<br>
 <%= link_to edit_project_path(@project), class: "btn btn-primary" do %>
   <i class="fa fa-pencil" aria-hidden="true"></i>
 <% end %>
