@@ -18,10 +18,11 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    @project = current_user.projects.build(project_params)
+    # @project = current_user.projects.build(project_params)
     authorize @project
     if @project.save
       total_participants_count = user_ids.count + 1
+      raise
       # solo goal is always total goal / number of participants
       goal_amount_solo_cents = @project.goal_amount_total_cents / total_participants_count
       # calculate withdrawal amount with solo and total saved at 0
@@ -32,7 +33,6 @@ class ProjectsController < ApplicationController
       user_ids.each do |user_id|
         UserProject.create(user_id: user_id, project: @project, goal_amount_solo_cents: goal_amount_solo_cents, withdrawal_amount_total_cents: withdrawal)
       end
-      raise
       redirect_to project_path(@project)
     else
       render :new
