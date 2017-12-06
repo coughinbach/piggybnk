@@ -51,10 +51,18 @@ class ProjectsController < ApplicationController
       goal_amount_solo_cents = @project.goal_amount_total_cents / (@project.user_projects.count)
       # update solo goal for current user (after injection, withdrawal, or change of total goal)
       @userproject.update(goal_amount_solo_cents: goal_amount_solo_cents)
+      # update solo goal for other users (after injection, withdrawal, or change of total goal)
+      # @project.user_projects.each { |user_project| user_project.update(goal_amount_solo_cents: goal_amount_solo_cents) }
       # calculate withdrawal amount (after withdrawal, injection, or change of total goal/due date)
-      withdrawal = (@userproject.goal_amount_solo_cents - @userproject.saved_amount_solo_cents) / (@project.due_date - Date.today)
-      #update withdrawal for user (after withdrawal, injection, or change of total goal/due date)
-      @userproject.update(withdrawal_amount_total_cents: withdrawal)
+      # update withdrawal for all users (after withdrawal, injection, or change of total goal/due date)
+      @project.user_projects.each do |user_project|
+        user_project.update(goal_amount_solo_cents: goal_amount_solo_cents)
+        withdrawal = (user_project.goal_amount_solo_cents - user_project.saved_amount_solo_cents) / (@project.due_date - Date.today)
+        user_project.update(withdrawal_amount_total_cents: withdrawal)
+      end
+      # withdrawal = (@userproject.goal_amount_solo_cents - @userproject.saved_amount_solo_cents) / (@project.due_date - Date.today)
+      #
+      #  @project.user_projects.each { |user_project| user_project.update(withdrawal_amount_total_cents: withdrawal)}
       redirect_to project_path(@project)
     else
       render :edit

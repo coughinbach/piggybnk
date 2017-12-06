@@ -12,7 +12,7 @@ Current solo piggy bank level (for me): <%= @userproject.saved_amount_solo_cents
 <br>
 Current collective piggy bank level (for group): <%= @project.saved_amount_total_cents %>€
 <br>
-Daily piggy deposit: <%= @userproject.withdrawal_amount_total_cents %>€
+Daily piggy deposit: <%= @userproject.withdrawal_amount_total_cents %>€ <%= "you did it!" if @userproject.saved_amount_solo_cents >= @userproject.goal_amount_solo_cents %>
 <br>
 <%= @project.user_projects.count %> Piggy collaborators for <%= @project.name %> :
 <% @project.user_projects.each do |userproject| %>
