@@ -22,16 +22,15 @@ class ProjectsController < ApplicationController
     authorize @project
     if @project.save
       total_participants_count = user_ids.count + 1
-      raise
       # solo goal is always total goal / number of participants
-      goal_amount_solo_cents = @project.goal_amount_total_cents / total_participants_count
+      @goal_amount_solo = @project.goal_amount_total_cents / total_participants_count
       # calculate withdrawal amount with solo and total saved at 0
       withdrawal = (goal_amount_solo_cents / (@project.due_date - Date.today))
       # create admin UserProject
-      @userproject = UserProject.create(user: current_user, project: @project, project_admin: true, goal_amount_solo_cents: goal_amount_solo_cents, withdrawal_amount_total_cents: withdrawal)
+      @userproject = UserProject.create(user: current_user, project: @project, project_admin: true, goal_amount_solo_cents: @goal_amount_solo, withdrawal_amount_total_cents: withdrawal)
       # create UserProject for each user_id present in user_ids
       user_ids.each do |user_id|
-        UserProject.create(user_id: user_id, project: @project, goal_amount_solo_cents: goal_amount_solo_cents, withdrawal_amount_total_cents: withdrawal)
+        UserProject.create(user_id: user_id, project: @project, goal_amount_solo_cents: @goal_amount_solo, withdrawal_amount_total_cents: withdrawal)
       end
       redirect_to project_path(@project)
     else
@@ -55,15 +54,15 @@ class ProjectsController < ApplicationController
       # update total saved after withdrawal or injection
       @project.update(saved_amount_total_cents: all_piggies.inject(:+))
       # solo goal is always total goal / number of participants
-      goal_amount_solo_cents = @project.goal_amount_total_cents / (@project.user_projects.count)
+      @goal_amount_solo = @project.goal_amount_total_cents / (@project.user_projects.count)
       # update solo goal for current user (after injection, withdrawal, or change of total goal)
-      @userproject.update(goal_amount_solo_cents: goal_amount_solo_cents)
+      @userproject.update(goal_amount_solo_cents: @goal_amount_solo)
       # update solo goal for other users (after injection, withdrawal, or change of total goal)
       # @project.user_projects.each { |user_project| user_project.update(goal_amount_solo_cents: goal_amount_solo_cents) }
       # calculate withdrawal amount (after withdrawal, injection, or change of total goal/due date)
       # update withdrawal for all users (after withdrawal, injection, or change of total goal/due date)
       @project.user_projects.each do |user_project|
-        user_project.update(goal_amount_solo_cents: goal_amount_solo_cents)
+        user_project.update(goal_amount_solo_cents: @goal_amount_solo)
         withdrawal = (user_project.goal_amount_solo_cents - user_project.saved_amount_solo_cents) / (@project.due_date - Date.today)
         user_project.update(withdrawal_amount_total_cents: withdrawal)
       end
