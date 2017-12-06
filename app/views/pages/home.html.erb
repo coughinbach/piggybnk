@@ -10,12 +10,14 @@
 <section class="full_screen_card_1" style="background-color: white">
   <div class="container">
     <div class="row">
+      `<div class="showScroll scale scaleStart-0 scaleEnd-1.3">
       <div class="picture-coin">
         <%= image_tag("coin.png", height: 100, width: 100) %>
       </div>
+      </div>`
       <div class="text-intro">
         <h2><strong>Save differently</strong></h2>
-        <p><strong>Piggybnk puts money aside automatically for your projects.</strong> Alone or with your friends, save for the things you love.</p>
+        <p>Piggybnk puts money aside automatically for your projects. Alone or with your friends, save for the things you love.</p>
       </div>
       <div class="semi-circle-1 text-center">
         1
@@ -29,11 +31,11 @@
   <div class="container">
     <div class="row">
       <div class="picture-wishlist">
-        <%= image_tag("wishlist.png", height: 100, width: 100) %>
+        <%= image_tag("wishlist.png", height: 80, width: 80) %>
       </div>
       <div class="text-card-1">
         <h2><strong>Define your project</strong></h2>
-        <p><strong>Choose the amount you want to save</strong> and the date you need it. Invite your friends to save with you!</p>
+        <p>Choose the amount you want to save and the date you need it. You can invite your friends to save with you!</p>
       </div>
       <div class="semi-circle-2 text-center">
         2
@@ -46,10 +48,11 @@
   <div class="container">
     <div class="row">
       <div class="picture-calendar">
-        <%= image_tag("calendar.png", height: 100, width: 100) %>
+        <%= image_tag("calendar.png", height: 85, width: 80) %>
       </div>
       <div class="text-card-2">
-        <p>See <strong>how much you need to save per day </strong>and choose how often you want the savings to be taken from your current account (weekly or monthly).</p>
+        <h2><strong>See your daily savings goal</strong></h2>
+        <p>See how much you need to save per day and choose how often you want the savings to be taken from your current account (weekly or monthly).</p>
       </div>
       <div class="semi-circle-3 text-center">
       3
@@ -62,11 +65,11 @@
   <div class="container">
     <div class="row">
       <div class="picture-credit-card">
-        <%= image_tag("credit-card.png", height: 100, width: 100) %>
+        <%= image_tag("credit-card.png", height: 80, width: 80) %>
       </div>
       <div class="text-card-3">
         <h2><strong>Add a credit card</strong></h2>
-        <p>Piggybnk automatically takes your savings from your credit card and <strong>gives you back your savings when you need it.</strong><br><br>One more thing ... It's free!</p>
+        <p>Piggybnk automatically takes your savings from your credit card and gives you back your savings when you need it.<br><br>Oh, one more thing ... It's free!</p>
       </div>
     </div>
   </div>
@@ -76,10 +79,14 @@
   <div class="container">
     <div class="row">
       <div class="container-button">
-      <a class="btn btn-danger" href="#" role="button">Start now</a>
+      <a class="btn btn-start-now" href="#" role="button">Start now</a>
     </div>
   </div>
 </section>
+
+
+`<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> <!-- Librairie Jquery necessaire -->
+<script src="assets/javascripts/showScroll.js"></script> <!-- Fichier necessaire aux animations -->`
 
 
 
