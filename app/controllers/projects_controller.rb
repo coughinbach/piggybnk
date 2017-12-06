@@ -21,11 +21,9 @@ class ProjectsController < ApplicationController
       goal_amount_solo_cents = @project.goal_amount_total_cents / total_participants_count
       formula = (goal_amount_solo_cents / (@project.due_date - Date.today))
       @userproject = UserProject.create(user: current_user, project: @project, project_admin: true, goal_amount_solo_cents: goal_amount_solo_cents, withdrawal_amount_total_cents: formula)
-
       user_ids.each do |user_id|
         UserProject.create(user_id: user_id, project: @project, goal_amount_solo_cents: goal_amount_solo_cents, withdrawal_amount_total_cents: formula)
       end
-
       redirect_to project_path(@project)
     else
       render :new
@@ -39,14 +37,20 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     @userproject = @project.user_projects.where(user: current_user).first
+    # allpiggies = 0
+    # @project.user_projects.each do |user_project|
+    #   allpiggies += user_project.saved_amount_solo_cents
+    #   allpiggies
+    # end
 
-    # iterate through all @project.user_projects.saved_amount_solo_cents for each collaborator and add all values to collective piggy bank
-    # @allpiggies = @project.saved_amount_total_cents
-    # @project.user_projects.each { |u_p| @allpiggies += u_p.saved_amount_solo_cents }
+    #DO TOTALS: solo + group change after withdrawal, boost
 
     if @project.update(project_params)
-      @userproject.update(goal_amount_solo_cents: @project.goal_amount_total_cents)
-      formula = (@userproject.goal_amount_solo_cents - @userproject.saved_amount_solo_cents) / (@project.due_date - Date.today)
+      # @project.update(saved_amount_total_cents: allpiggies)
+      total_participants_count = @project.user_projects.count
+      goal_amount_solo_cents = @project.goal_amount_total_cents / total_participants_count
+      @userproject.update(goal_amount_solo_cents: goal_amount_solo_cents)
+      formula = (goal_amount_solo_cents - @userproject.saved_amount_solo_cents) / (@project.due_date - Date.today)
       @project.user_projects.first.update(withdrawal_amount_total_cents: formula)
       redirect_to project_path(@project)
     else
