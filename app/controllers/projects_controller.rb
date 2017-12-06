@@ -32,6 +32,7 @@ class ProjectsController < ApplicationController
       user_ids.each do |user_id|
         UserProject.create(user_id: user_id, project: @project, goal_amount_solo_cents: goal_amount_solo_cents, withdrawal_amount_total_cents: withdrawal)
       end
+      raise
       redirect_to project_path(@project)
     else
       render :new
@@ -92,7 +93,7 @@ class ProjectsController < ApplicationController
       next if user_id == 0
       ids << user_id
     end
-    return id
+    return ids
   end
 
   def set_project
