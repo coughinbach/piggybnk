@@ -21,21 +21,7 @@
             <%= f.association :users, as: :select, label_method: :username %>
           </div>
           <div class="col-xs-12">
-            <label class="control-label radio_buttons required"><abbr title="required">*</abbr> Category</label>
-            <input name="project[category_id]" value="" type="hidden">
-            <div class="category-choices">
-              <% Category.all.each do |category| %>
-              <div class="category-choice" style="background-image: url('<%= cl_image_path category.photo, width: 146 %>')">
-                <input class="radio_buttons required hidden" value="<%= category.id %>" name="project[category_ids][]" id="project_category_ids_<%= category.id %>" type="radio">
-                <div class="category-name">
-                  <label for="project_category_ids_<%= category.id %>">
-                    <%= category.name %>
-                  </label>
-                </div>
-              </div>
-              <% end %>
-            </div>
-
+            <%= f.association :category, as: :radio_buttons %>
           </div>
           <%= f.submit "Add project", class: "btn btn-primary" %>
         <% end %>
@@ -46,5 +32,3 @@
 </div>
 
 <%#= f.association :category, as: :radio_buttons %>
-
-
