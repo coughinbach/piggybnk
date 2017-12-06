@@ -27,7 +27,7 @@
       </div>
     <% else %>
       <!-- Login link (when logged out) -->
-      <%= link_to t(".sign_in", default: "Login"), new_user_session_path, class: "navbar-wagon-item navbar-wagon-link navbar-wagon-brand" %>
+      <div class="navbar-brand"><h3><%= link_to t(".sign_in", default: "👍"), new_user_session_path %></h3></div>
     <% end %>
   </div>
 </div>
