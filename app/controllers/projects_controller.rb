@@ -25,7 +25,7 @@ class ProjectsController < ApplicationController
       # solo goal is always total goal / number of participants
       @goal_amount_solo = @project.goal_amount_total_cents / total_participants_count
       # calculate withdrawal amount with solo and total saved at 0
-      withdrawal = (goal_amount_solo_cents / (@project.due_date - Date.today))
+      withdrawal = (@goal_amount_solo / (@project.due_date - Date.today))
       # create admin UserProject
       @userproject = UserProject.create(user: current_user, project: @project, project_admin: true, goal_amount_solo_cents: @goal_amount_solo, withdrawal_amount_total_cents: withdrawal)
       # create UserProject for each user_id present in user_ids
