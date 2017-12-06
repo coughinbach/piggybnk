@@ -1,21 +1,25 @@
 class ProjectsController < ApplicationController
 
   def index
-    @userprojects = UserProject.where(user: current_user)
+    @userprojects = policy_scope(UserProject)
     @projects = @userprojects.map { |u_p| u_p.project }
   end
 
   def show
     @project = Project.find(params[:id])
     @userproject = @project.user_projects.where(user: current_user).first
+    authorize @project
   end
 
   def new
     @project = Project.new
+    authorize @project
   end
 
   def create
     @project = Project.new(project_params)
+    @project = current_user.projects.build(project_params)
+    authorize @project
     if @project.save
       total_participants_count = user_ids.count + 1
       # solo goal is always total goal / number of participants
@@ -36,11 +40,13 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
+    authorize @project
   end
 
   def update
     @project = Project.find(params[:id])
     @userproject = @project.user_projects.where(user: current_user).first
+    authorize @project
     if @project.update(project_params)
       # total_saved is equal to sum of solo_saved of all participants
       all_piggies = []
@@ -71,6 +77,7 @@ class ProjectsController < ApplicationController
 
   def destroy
     @project = Project.find(params[:id])
+    authorize @project
     @project.delete
     redirect_to projects_path
   end
@@ -85,7 +92,12 @@ class ProjectsController < ApplicationController
       next if user_id == 0
       ids << user_id
     end
-    return ids
+    return id
+  end
+
+  def set_project
+    @project = Project.find(params[:id])
+    authorize @project
   end
 
   def project_params

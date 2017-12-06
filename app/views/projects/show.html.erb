@@ -19,10 +19,17 @@ Daily piggy deposit: <%= @userproject.withdrawal_amount_total_cents %>€ <%= "y
   <%= userproject.user.first_name %>
 <% end %>
 <br>
-<%= link_to edit_project_path(@project), class: "btn btn-primary" do %>
-  <i class="fa fa-pencil" aria-hidden="true"></i>
+Current piggy bank level: <%= @userproject.saved_amount_solo_cents %>€
+
+<% if policy(@project).edit? %>
+  <%= link_to edit_project_path(@project), class: "btn btn-primary" do %>
+    <i class="fa fa-pencil" aria-hidden="true"></i>
+  <% end %>
 <% end %>
 
-<%= link_to project_path(@project), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-primary" do %>
-  <i class="fa fa-trash-o" aria-hidden="true"></i>
+<% if policy(@project).destroy? %>
+  <%= link_to project_path(@project), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-primary" do %>
+    <i class="fa fa-trash-o" aria-hidden="true"></i>
+  <% end %>
 <% end %>
+
