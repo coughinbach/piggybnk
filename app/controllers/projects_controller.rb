@@ -17,8 +17,15 @@ class ProjectsController < ApplicationController
   def create
     @project = Project.new(project_params)
     if @project.save
-      formula = (@project.goal_amount_total_cents / (@project.due_date - Date.today))
-      @userproject = UserProject.create(user: current_user, project: @project, project_admin: true, goal_amount_solo_cents: @project.goal_amount_total_cents, withdrawal_amount_total_cents: formula)
+      total_participants_count = user_ids.count + 1
+      goal_amount_solo_cents = @project.goal_amount_total_cents / total_participants_count
+      formula = (goal_amount_solo_cents / (@project.due_date - Date.today))
+      @userproject = UserProject.create(user: current_user, project: @project, project_admin: true, goal_amount_solo_cents: goal_amount_solo_cents, withdrawal_amount_total_cents: formula)
+
+      user_ids.each do |user_id|
+        UserProject.create(user_id: user_id, project: @project, goal_amount_solo_cents: goal_amount_solo_cents, withdrawal_amount_total_cents: formula)
+      end
+
       redirect_to project_path(@project)
     else
       render :new
@@ -54,6 +61,19 @@ class ProjectsController < ApplicationController
   end
 
   private
+
+  def user_ids
+    ids = []
+
+    params[:project][:user_ids].each do |user_id|
+      user_id = user_id.to_i
+      next if user_id == 0
+
+      ids << user_id
+    end
+
+    return ids
+  end
 
   def project_params
     params.require(:project).permit(:name, :description, :due_date, :goal_amount_total_cents)

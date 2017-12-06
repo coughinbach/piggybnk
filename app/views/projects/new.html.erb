@@ -3,5 +3,6 @@
   <%= f.input :description %>
   <%= f.input :due_date %>
   <%= f.input :goal_amount_total_cents %>
+  <%= f.association :users, as: :select, label_method: :username %>
   <%= f.submit "Add project", class: "btn btn-primary" %>
 <% end %>
