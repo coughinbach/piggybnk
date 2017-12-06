@@ -49,6 +49,10 @@ GEM
     builder (3.2.3)
     byebug (9.1.0)
     coderay (1.1.2)
+    coffee-script (2.4.1)
+      coffee-script-source
+      execjs
+    coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     crass (1.0.3)
     devise (4.3.0)
@@ -219,6 +223,7 @@ PLATFORMS
 DEPENDENCIES
   autoprefixer-rails
   bootstrap-sass
+  coffee-script
   devise
   faker
   figaro
