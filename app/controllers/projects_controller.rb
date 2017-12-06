@@ -18,11 +18,15 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     if @project.save
       total_participants_count = user_ids.count + 1
+      # solo goal is always total goal / number of participants
       goal_amount_solo_cents = @project.goal_amount_total_cents / total_participants_count
-      formula = (goal_amount_solo_cents / (@project.due_date - Date.today))
-      @userproject = UserProject.create(user: current_user, project: @project, project_admin: true, goal_amount_solo_cents: goal_amount_solo_cents, withdrawal_amount_total_cents: formula)
+      # calculate withdrawal amount with solo and total saved at 0
+      withdrawal = (goal_amount_solo_cents / (@project.due_date - Date.today))
+      # create admin UserProject
+      @userproject = UserProject.create(user: current_user, project: @project, project_admin: true, goal_amount_solo_cents: goal_amount_solo_cents, withdrawal_amount_total_cents: withdrawal)
+      # create UserProject for each user_id present in user_ids
       user_ids.each do |user_id|
-        UserProject.create(user_id: user_id, project: @project, goal_amount_solo_cents: goal_amount_solo_cents, withdrawal_amount_total_cents: formula)
+        UserProject.create(user_id: user_id, project: @project, goal_amount_solo_cents: goal_amount_solo_cents, withdrawal_amount_total_cents: withdrawal)
       end
       redirect_to project_path(@project)
     else
@@ -37,21 +41,20 @@ class ProjectsController < ApplicationController
   def update
     @project = Project.find(params[:id])
     @userproject = @project.user_projects.where(user: current_user).first
-    # allpiggies = 0
-    # @project.user_projects.each do |user_project|
-    #   allpiggies += user_project.saved_amount_solo_cents
-    #   allpiggies
-    # end
-
-    #DO TOTALS: solo + group change after withdrawal, boost
-
     if @project.update(project_params)
-      # @project.update(saved_amount_total_cents: allpiggies)
-      total_participants_count = @project.user_projects.count
-      goal_amount_solo_cents = @project.goal_amount_total_cents / total_participants_count
+      # total_saved is equal to sum of solo_saved of all participants
+      all_piggies = []
+      @project.user_projects.each { |u_p| all_piggies << u_p.saved_amount_solo_cents }
+      # update total saved after withdrawal or injection
+      @project.update(saved_amount_total_cents: all_piggies.inject(:+))
+      # solo goal is always total goal / number of participants
+      goal_amount_solo_cents = @project.goal_amount_total_cents / (@project.user_projects.count)
+      # update solo goal for current user (after injection, withdrawal, or change of total goal)
       @userproject.update(goal_amount_solo_cents: goal_amount_solo_cents)
-      formula = (goal_amount_solo_cents - @userproject.saved_amount_solo_cents) / (@project.due_date - Date.today)
-      @project.user_projects.first.update(withdrawal_amount_total_cents: formula)
+      # calculate withdrawal amount (after withdrawal, injection, or change of total goal/due date)
+      withdrawal = (@userproject.goal_amount_solo_cents - @userproject.saved_amount_solo_cents) / (@project.due_date - Date.today)
+      #update withdrawal for user (after withdrawal, injection, or change of total goal/due date)
+      @userproject.update(withdrawal_amount_total_cents: withdrawal)
       redirect_to project_path(@project)
     else
       render :edit
@@ -68,14 +71,12 @@ class ProjectsController < ApplicationController
 
   def user_ids
     ids = []
-
     params[:project][:user_ids].each do |user_id|
       user_id = user_id.to_i
+      # "".to_i is 0, go to next line in the case of solo project
       next if user_id == 0
-
       ids << user_id
     end
-
     return ids
   end
 
