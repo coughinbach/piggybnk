@@ -74,6 +74,10 @@
   align-items: center;
   justify-content: center;
   background-size: cover;
+  border: 3px solid white;
+  &.active-user {
+    border: 3px solid $blue;
+  }
 }
 
 .user-name {
@@ -84,8 +88,5 @@
   border-radius: 5px;
   label {
     font-size: 14px;
-  }
-  &.active-user {
-    border: 5px solid $blue;
   }
 }
