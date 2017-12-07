@@ -1,2 +1,2 @@
 import "bootstrap";
-// import "new-form";
+import "new-form";

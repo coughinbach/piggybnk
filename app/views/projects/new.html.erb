@@ -9,22 +9,43 @@
             <%= f.input :name%>
           </div>
           <div class="col-xs-12">
-            <%= f.input :due_date %>
+            <label class="control-label radio_buttons required"><abbr title="required">*</abbr> Category</label>
+            <input name="project[category_id]" value="" type="hidden">
+            <div class="category-choices">
+              <% Category.all.each do |category| %>
+              <div class="category-choice" style="background-image: url('<%= cl_image_path category.photo, width: 146; %>')">
+                <input class="radio_buttons required hidden" value="<%= category.id %>" name="project[category_ids][]" id="project_category_ids_<%= category.id %>" type="radio">
+                <div class="category-name">
+                  <label for="project_category_ids_<%= category.id %>">
+                    <%= category.name %>
+                  </label>
+                </div>
+              </div>
+              <% end %>
+            </div>
+            <div class="col-xs-12">
+              <%= f.input :description %>
+            </div>
+            <div class="col-xs-12">
+              <%= f.input :due_date %>
+            </div>
+            <div class="col-xs-12">
+              <label class="control-label integer required" for="project_goal_amount_total_cents"><abbr title="required">*</abbr>How much do you need?</label><input class="form-control numeric integer required" step="1" value="0" name="project[goal_amount_total_cents]" id="project_goal_amount_total_cents" type="number">
+            </div>
+            <div class="col-xs-12">
+              <br>
+              <%#= f.association :users, as: :select, label_method: :username %>
+              <label class="control-label select optional" for="project_user_ids">Assemble your team!</label>
+              <input name="project[user_ids][]" value="" type="hidden">
+              <select class="form-control select optional" multiple="multiple" name="project[user_ids][]" id="project_user_ids">
+              <% User.all.each do |user| %>
+                <option value="<%= user.id %>"><%= user.username %></option>
+              <% end %>
+              </select>
+            </div>
           </div>
-          <div class="col-xs-12">
-            <%= f.input :description %>
-          </div>
-          <div class="col-xs-12">
-            <%= f.input :goal_amount_total_cents %>
-          </div>
-          <div class="col-xs-12">
-            <%= f.association :users, as: :select, label_method: :username %>
-          </div>
-          <div class="col-xs-12">
-            <%= f.association :category, as: :radio_buttons %>
-          </div>
-          <%= f.submit "Add project", class: "btn btn-new-project" %>
-        <% end %>
+          <%= f.submit "Add project", class: "btn btn-new" %>
+          <% end %>
         </div>
       </div>
     </div>
@@ -32,3 +53,5 @@
 </div>
 
 <%#= f.association :category, as: :radio_buttons %>
+
+
