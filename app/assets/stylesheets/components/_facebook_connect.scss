@@ -3,16 +3,19 @@
 .loginBtn {
   box-sizing: border-box;
   position: relative;
-  /* width: 13em;  - apply for fixed size */
-  margin: 0.2em;
+  width: 100%;  /*- apply for fixed size */
+  height: 37px;
   padding: 0 15px 0 46px;
   border: none;
-  text-align: left;
+  text-align: center;
   line-height: 34px;
   white-space: nowrap;
   border-radius: 3px;
   font-size: 16px;
   color: #FFF;
+  margin: 0px;
+  margin-bottom: 10px;
+  font-weight: bolder;
 }
 .loginBtn:before {
   content: "";
