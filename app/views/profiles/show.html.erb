@@ -18,19 +18,19 @@
         <div id="card-details">
           <% if current_user.credit_card %>
             <span id = "card-number">
-              xxxx xxxx xxxx <%= current_user.credit_card.first["last4"] %>
+              xxxx xxxx xxxx <%= current_user.credit_card["last4"] %>
             </span>
             <span id="expiration">
-              <%= current_user.credit_card.first["exp_month"] %>/<%= current_user.credit_card.first["exp_year"] %>
+              <%= current_user.credit_card["exp_month"] %>/<%= current_user.credit_card["exp_year"] %>
             </span>
         </div>
-          <% if current_user.credit_card.first["brand"] == "Visa" %>
+          <% if current_user.credit_card["brand"] == "Visa" %>
             <%= image_tag("cards/Visa-icon.png", id:"card-icon") %>
-          <% elsif current_user.credit_card.first["brand"] == "Mastercard" %>
+          <% elsif current_user.credit_card["brand"] == "Mastercard" %>
              <%= image_tag("cards/Master-Card--icon.png", id:"card-icon") %>
-          <% elsif current_user.credit_card.first["brand"] == "Discover" %>
+          <% elsif current_user.credit_card["brand"] == "Discover" %>
             <%= image_tag("cards/Discover-icon.ico", id:"card-icon") %>
-          <% elsif current_user.credit_card.first["brand"] == "AmericanExpress" %>
+          <% elsif current_user.credit_card["brand"] == "AmericanExpress" %>
             <%= image_tag("cards/American-Express-icon.png", id:"card-icon") %>
           <% else %>
             <%= image_tag("cards/default-card.png", id:"card-icon") %>
