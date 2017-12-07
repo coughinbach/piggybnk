@@ -10,10 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171206150626) do
+ActiveRecord::Schema.define(version: 20171206172115) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "categories", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "photo"
+  end
 
   create_table "projects", force: :cascade do |t|
     t.string "name"
@@ -24,6 +31,8 @@ ActiveRecord::Schema.define(version: 20171206150626) do
     t.datetime "updated_at", null: false
     t.integer "goal_amount_total_cents", default: 0, null: false
     t.integer "saved_amount_total_cents", default: 0, null: false
+    t.bigint "category_id"
+    t.index ["category_id"], name: "index_projects_on_category_id"
   end
 
   create_table "user_projects", force: :cascade do |t|
@@ -34,6 +43,7 @@ ActiveRecord::Schema.define(version: 20171206150626) do
     t.datetime "updated_at", null: false
     t.integer "withdrawal_amount_total_cents", default: 0, null: false
     t.integer "saved_amount_solo_cents", default: 0, null: false
+    t.integer "goal_amount_solo_cents", default: 0, null: false
     t.index ["project_id"], name: "index_user_projects_on_project_id"
     t.index ["user_id"], name: "index_user_projects_on_user_id"
   end
@@ -66,6 +76,7 @@ ActiveRecord::Schema.define(version: 20171206150626) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "projects", "categories"
   add_foreign_key "user_projects", "projects", on_delete: :cascade
   add_foreign_key "user_projects", "users"
 end

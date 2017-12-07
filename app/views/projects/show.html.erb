@@ -1,19 +1,38 @@
 Project name: <%= @project.name %>
 <br>
-Description: <%= @project.description %>
+Category: <%= @project.category.name %>
+<%= image_tag @project.category.photo, height: 300, width: 300, crop: :fill %>
 <br>
-Goal amount: <%= @project.goal_amount_total_cents %>€
+Description: <%= @project.description %>
 <br>
 Due date: <%= @project.due_date %>
 <br>
-Daily piggy deposit: <%= @userproject.withdrawal_amount_total_cents %>€
+Group goal amount: <%= @project.goal_amount_total_cents %>€
+<br>
+Solo goal for <%= @project.name %>: <%= @userproject.goal_amount_solo_cents %>€
+<br>
+Current solo piggy bank level (for me): <%= @userproject.saved_amount_solo_cents %>€
+<br>
+Current collective piggy bank level (for group): <%= @project.saved_amount_total_cents %>€
+<br>
+Daily piggy deposit: <%= @userproject.withdrawal_amount_total_cents %>€ <%= "you did it!" if @userproject.saved_amount_solo_cents >= @userproject.goal_amount_solo_cents %>
+<br>
+<%= @project.user_projects.count %> Piggy collaborators for <%= @project.name %> :
+<% @project.user_projects.each do |userproject| %>
+  <%= userproject.user.first_name %>
+<% end %>
 <br>
 Current piggy bank level: <%= @userproject.saved_amount_solo_cents %>€
 
-<%= link_to edit_project_path(@project), class: "btn btn-primary" do %>
-  <i class="fa fa-pencil" aria-hidden="true"></i>
+<% if policy(@project).edit? %>
+  <%= link_to edit_project_path(@project), class: "btn btn-primary" do %>
+    <i class="fa fa-pencil" aria-hidden="true"></i>
+  <% end %>
 <% end %>
 
-<%= link_to project_path(@project), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-primary" do %>
-  <i class="fa fa-trash-o" aria-hidden="true"></i>
+<% if policy(@project).destroy? %>
+  <%= link_to project_path(@project), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-primary" do %>
+    <i class="fa fa-trash-o" aria-hidden="true"></i>
+  <% end %>
 <% end %>
+
