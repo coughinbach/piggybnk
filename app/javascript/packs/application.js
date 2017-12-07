@@ -1,2 +1,3 @@
 import "bootstrap";
-import "new-form";
+import { selectCategory } from '../components/new-form';
+selectCategory();
