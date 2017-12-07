@@ -29,7 +29,7 @@
               <%= f.input :description, label: "Describe your project" %>
             </div>
             <div class="col-xs-12">
-              <%= f.input :due_date, label: "When is your piggybnk due?" %>
+              <%= f.input :due_date, as: :string, label: "When is your piggybnk due?", input_html: {class: "datepicker"} %>
             </div>
             <div class="col-xs-12">
               <label class="control-label integer required" for="project_goal_amount_total_cents"><abbr title="required">*</abbr>How much do you need? (in €)</label><input class="form-control numeric integer required" step="1" value="0" name="project[goal_amount_total_cents]" id="project_goal_amount_total_cents" type="number">
