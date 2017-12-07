@@ -35,16 +35,22 @@
               <label class="control-label integer required" for="project_goal_amount_total_cents"><abbr title="required">*</abbr>How much do you need? (in €)</label><input class="form-control numeric integer required" step="1" value="0" name="project[goal_amount_total_cents]" id="project_goal_amount_total_cents" type="number">
             </div>
             <div class="col-xs-12">
+              <br>
               <label class="control-label check_boxes optional">Assemble your team!</label>
               <input name="project[user_ids][]" value="" type="hidden">
-              <% User.all.each do |user| %>
-                <span class="checkbox">
-                  <label for="project_user_ids_<%= user.id %>">
-                    <input class="check_boxes optional" value="<%= user.id %>" name="project[user_ids][]" id="project_user_ids_<%= user.id %>" type="checkbox">
-                    <%= user.first_name %> <%= user.last_name %>
-                  </label>
-                </span>
-              <% end %>
+              <div class="user-choices">
+                <% User.all.each do |user| %>
+
+                  <div class="user-choice" style="background-image: url('<%= cl_image_path user.default_photo_url, width: 40, height: 40; %>')">
+                    <input class="check_boxes optional hidden" value="<%= user.id %>" name="project[user_ids][]" id="project_user_ids_<%= user.id %>" type="checkbox">
+                    <div class="user-name">
+                      <label for="project_user_ids_<%= user.id %>">
+                      <%= user.first_name[0] %><%= user.last_name[0] %>
+                      </label>
+                    </div>
+                  </div>
+                <% end %>
+              </div>
             </div>
             <%= f.submit "Add project", class: "btn btn-new-project" %>
             <% end %>

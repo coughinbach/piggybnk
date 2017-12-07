@@ -43,9 +43,6 @@
   border-radius: 50%;
   justify-content: center;
   border: 8px solid white;
-  &:hover {
-    border: 8px solid $blue;
-  }
   &.active {
     border: 8px solid $blue;
   }
@@ -60,4 +57,35 @@
   justify-content: center;
   color: $purple;
   border-radius: 5px;
+}
+
+.user-choices {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.user-choice {
+  display: flex;
+  height: 40px;
+  flex: 0 0 40px;
+  margin: 0px 5px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+}
+
+.user-name {
+  display: flex;
+  flex: 0 0 auto;
+  justify-content: center;
+  color: $purple;
+  border-radius: 5px;
+  label {
+    font-size: 14px;
+  }
+  &.active-user {
+    border: 5px solid $blue;
+  }
 }
