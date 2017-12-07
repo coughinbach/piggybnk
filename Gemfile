@@ -19,10 +19,10 @@ gem 'webpacker'
 
 gem 'money-rails'
 gem 'faker'
-
 gem 'pundit'
-
 gem 'omniauth-facebook'
+gem 'cloudinary'
+gem 'carrierwave', '~> 1.2'
 
 group :development, :test do
   gem 'pry-byebug'

@@ -1,5 +1,8 @@
 Project name: <%= @project.name %>
 <br>
+Category: <%= @project.category.name %>
+<%= image_tag @project.category.photo, height: 300, width: 300, crop: :fill %>
+<br>
 Description: <%= @project.description %>
 <br>
 Due date: <%= @project.due_date %>
