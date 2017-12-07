@@ -31,7 +31,7 @@ Current piggy bank level: <%= @userproject.saved_amount_solo_cents %>€
 <% end %>
 
 <% if policy(@project).destroy? %>
-  <%= link_to project_path(@project), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-primary" do %>
+  <%= link_to project_path(@project), method: :delete, class: "btn btn-primary" do %>
     <i class="fa fa-trash-o" aria-hidden="true"></i>
   <% end %>
 <% end %>

@@ -1,12 +1,23 @@
-const choices = document.querySelectorAll(".category-choice label");
+const categoryChoices = document.querySelectorAll(".category-choice label");
+const userChoices = document.querySelectorAll(".user-choice label");
 
 function changeClass(e) {
-  choices.forEach(choice => choice.parentNode.parentNode.classList.remove("active"))
+  categoryChoices.forEach(choice => choice.parentNode.parentNode.classList.remove("active"))
   e.currentTarget.parentNode.parentNode.classList.toggle("active");
 }
 
+function changeUserClass(e) {
+  e.currentTarget.parentNode.parentNode.classList.toggle("active-user");
+}
+
 function selectCategory() {
-  choices.forEach(choice => choice.addEventListener("click", changeClass));
+  categoryChoices.forEach(choice => choice.addEventListener("click", changeClass));
+}
+
+function selectUsers() {
+  userChoices.forEach(choice => choice.addEventListener("click", changeUserClass));
 }
 
 export { selectCategory };
+
+export { selectUsers };

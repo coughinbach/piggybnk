@@ -5,6 +5,22 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable,
          :omniauthable, omniauth_providers: [:facebook]
 
+  has_many :user_projects, dependent: :destroy
+  has_many :projects, through: :user_projects
+  validates :username, presence: true
+  validates :first_name, presence: true
+  validates :last_name, presence: true
+
+  mount_uploader :photo, PhotoUploader
+
+  def default_photo_url
+    if self.photo.file.nil?
+      self.facebook_picture_url || ActionController::Base.helpers.asset_path("default-user.png")
+    else
+      self.photo_url
+    end
+  end
+
   def self.find_for_facebook_oauth(auth)
     puts auth
     user_params = auth.slice(:provider, :uid)
@@ -28,9 +44,6 @@ class User < ApplicationRecord
     return user
   end
 
-  has_many :user_projects, dependent: :destroy
-  has_many :projects, through: :user_projects
-  validates :username, presence: true
-  validates :first_name, presence: true
-  validates :last_name, presence: true
+
+
 end
