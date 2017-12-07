@@ -1,7 +1,24 @@
-<% @projects.each do |project| %>
-  <%= link_to project.name, project_path(project) %>
-  Goal amount: <%= project.goal_amount_total_cents %>
-  Due date: <%= project.due_date %>
-  <br>
-<% end %>
+
+
+<div class="container">
+  <h4>Hello <%= current_user.first_name if current_user.first_name %></h4>
+  <div class="row">
+    <div class="col-xs-12">
+          <% @projects.each do |project| %>
+          <div class="card">
+            <div class="flexhome">
+              <div class="category-picture"><%= image_tag project.category.photo %></div>
+              <div class="title"><%= link_to project.name, project_path(project) %></div>
+              <div class ="date">📅 <%= project.due_date %></div>
+            </div>
+              <div class="amount">🎯 <%= project.goal_amount_total_cents %>€</div>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: 63%;" aria-valuenow="63" aria-valuemin="0" aria-valuemax="100">63%</div>
+              </div>
+          </div>
+          <br>
+        <% end %>
+    </div>
+  </div>
 <%= link_to "Add project", new_project_path, class: "btn btn-primary" %>
+</div>
