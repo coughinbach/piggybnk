@@ -1,3 +1,62 @@
+<link href="https://afeld.github.io/emoji-css/emoji.css" rel="stylesheet">
+
+<section class="background_color_full_screen" style="background-color: #FF7E6B">
+  <div class="container">
+    <div class="row">
+
+      <div class="col-xs-12">
+        <div class="project-card">
+          <div class="col-xs-3">
+            <div class="project-picture">
+              <%= image_tag 'travel.png' %>
+            </div>
+          </div>
+          <div class="col-xs-9">
+            <div class="project-name">
+            <%= @project.name %>
+            <br>
+            <div id="date">
+              <i class="em em-calendar"></i><%=" "%><%= @project.due_date %></div>
+            </div>
+          </div>
+          <div class="col-xs-12">
+            <div class="objectif">
+            <i class="em em-dart"></i><%=" "%><%= @project.goal_amount_total_cents %>€
+            </div>
+          </div>
+          <div class="col-xs-12">
+            <div class="progress">
+              <div class="progress-bar bg-success" role="progressbar" style="width: 15%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-xs-12 cards-container">
+          <div class="cards">
+            <%= @userproject.withdrawal_amount_total_cents %>€ <%= "you did it!" if @userproject.saved_amount_solo_cents >= @userproject.goal_amount_solo_cents %>
+          </div>
+          <div class="cards">
+          </div>
+          <div class="cards">
+          </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+
+
+</section>
+
+
+
 Project name: <%= @project.name %>
 <br>
 Description: <%= @project.description %>
