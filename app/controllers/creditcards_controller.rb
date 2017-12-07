@@ -1,4 +1,5 @@
 class CreditcardsController < ApplicationController
+  skip_after_action :verify_authorized
   def create
     # TODO
     # - creer un Stripe Customer a partir du stripe token

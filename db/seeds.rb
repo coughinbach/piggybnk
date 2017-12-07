@@ -9,6 +9,7 @@
 UserProject.destroy_all
 Project.destroy_all
 User.destroy_all
+# Category.destroy_all
 
 
 p "creating users"
@@ -17,41 +18,41 @@ user2 = User.create!(username: "user2", email: Faker::Internet.email, password: 
 user3 = User.create!(username: "user3", email: Faker::Internet.email, password: "password", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name)
 p "users done"
 
-p "creating categories"
-travel = Category.create!(
-  name: "Travel",
-  photo: File.open(Rails.root.join('db/fixtures/images/categories/travel.png'))
-)
-shopping = Category.create!(
-  name: "Shopping",
-  photo: File.open(Rails.root.join('db/fixtures/images/categories/shopping.png'))
-)
-event = Category.create!(
-  name: "Event",
-  photo: File.open(Rails.root.join('db/fixtures/images/categories/event.png'))
-)
-gift = Category.create!(
-  name: "Gift",
-  photo: File.open(Rails.root.join('db/fixtures/images/categories/gift.png'))
-)
-hobby = Category.create!(
-  name: "Hobby",
-  photo: File.open(Rails.root.join('db/fixtures/images/categories/hobby.png'))
-)
-other = Category.create!(
-  name: "Other",
-  photo: File.open(Rails.root.join('db/fixtures/images/categories/other.png'))
-)
-p "categories done"
+# p "creating categories"
+# travel = Category.create!(
+#   name: "Travel",
+#   photo: File.open(Rails.root.join('db/fixtures/images/categories/travel.png'))
+# )
+# shopping = Category.create!(
+#   name: "Shopping",
+#   photo: File.open(Rails.root.join('db/fixtures/images/categories/shopping.png'))
+# )
+# event = Category.create!(
+#   name: "Event",
+#   photo: File.open(Rails.root.join('db/fixtures/images/categories/event.png'))
+# )
+# gift = Category.create!(
+#   name: "Gift",
+#   photo: File.open(Rails.root.join('db/fixtures/images/categories/gift.png'))
+# )
+# hobby = Category.create!(
+#   name: "Hobby",
+#   photo: File.open(Rails.root.join('db/fixtures/images/categories/hobby.png'))
+# )
+# other = Category.create!(
+#   name: "Other",
+#   photo: File.open(Rails.root.join('db/fixtures/images/categories/other.png'))
+# )
+# p "categories done"
 
 p "creating projects"
-project1 = Project.create!(name: "Project 1", goal_amount_total_cents: 200, due_date: (Date.today + 10), category: travel)
-project2 = Project.create!(name: "Project 2", goal_amount_total_cents: 200, due_date: (Date.today + 10), category: gift)
-project3 = Project.create!(name: "Project 3", goal_amount_total_cents: 200, due_date: (Date.today + 10), category: event)
+project1 = Project.create!(name: "Project 1", goal_amount_total: 200, due_date: (Date.today + 10), category: Category.find_by_name("Travel"))
+project2 = Project.create!(name: "Project 2", goal_amount_total: 200, due_date: (Date.today + 10), category: Category.find_by_name("Gift"))
+project3 = Project.create!(name: "Project 3", goal_amount_total: 200, due_date: (Date.today + 10), category: Category.find_by_name("Event"))
 p "projects done"
 
 p "creating userprojects"
-userproject1 = UserProject.create!(user: user1, project: project1)
-userproject2 = UserProject.create!(user: user2, project: project1)
-userproject3 = UserProject.create!(user: user1, project: project2)
+userproject1 = UserProject.create!(user: user1, project: project1, withdrawal_amount_total: 20)
+userproject2 = UserProject.create!(user: user2, project: project1, withdrawal_amount_total: 20)
+userproject3 = UserProject.create!(user: user1, project: project2, withdrawal_amount_total: 20)
 p "userprojects done"
