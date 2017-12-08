@@ -1,7 +1,7 @@
 
 
 <div class="container">
-  <h4>Hello <%= current_user.first_name if current_user.first_name %></h4>
+  <h4 id="welcome-message">Hello <%= current_user.first_name if current_user.first_name %> 🤗 </h4>
   <div class="row">
     <div class="col-xs-12">
           <% @projects.each do |project| %>
