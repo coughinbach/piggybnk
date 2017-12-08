@@ -9,6 +9,7 @@
 UserProject.destroy_all
 Project.destroy_all
 User.destroy_all
+# Category.destroy_all
 
 
 p "creating users"
@@ -45,13 +46,13 @@ p "users done"
 # p "categories done"
 
 p "creating projects"
-project1 = Project.create!(name: "Project 1", goal_amount_total_cents: 200, due_date: (Date.today + 10), category: travel)
-project2 = Project.create!(name: "Project 2", goal_amount_total_cents: 200, due_date: (Date.today + 10), category: gift)
-project3 = Project.create!(name: "Project 3", goal_amount_total_cents: 200, due_date: (Date.today + 10), category: event)
+project1 = Project.create!(name: "Project 1", goal_amount_total: 200, due_date: (Date.today + 10), category: Category.find_by_name("Travel"))
+project2 = Project.create!(name: "Project 2", goal_amount_total: 200, due_date: (Date.today + 10), category: Category.find_by_name("Gift"))
+project3 = Project.create!(name: "Project 3", goal_amount_total: 200, due_date: (Date.today + 10), category: Category.find_by_name("Event"))
 p "projects done"
 
 p "creating userprojects"
-userproject1 = UserProject.create!(user: user1, project: project1)
-userproject2 = UserProject.create!(user: user2, project: project1)
-userproject3 = UserProject.create!(user: user1, project: project2)
+userproject1 = UserProject.create!(user: user1, project: project1, withdrawal_amount_total: 20)
+userproject2 = UserProject.create!(user: user2, project: project1, withdrawal_amount_total: 20)
+userproject3 = UserProject.create!(user: user1, project: project2, withdrawal_amount_total: 20)
 p "userprojects done"
