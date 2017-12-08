@@ -69,14 +69,14 @@
   display: flex;
   height: 50px;
   flex: 0 0 50px;
-  margin: 0px 5px;
+  margin: 5px 5px;
   border-radius: 50%;
   align-items: center;
   justify-content: center;
   background-size: cover;
-  border: 3px solid white;
+  border: 5px solid white;
   &.active-user {
-    border: 3px solid $green;
+    border: 5px solid $green;
   }
 }
 
