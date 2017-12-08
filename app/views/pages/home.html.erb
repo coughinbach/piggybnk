@@ -3,6 +3,10 @@
     <h1><strong>Dream, save and realize all your projects</strong></h1>
     <br>
     <p>Savings has never been so enjoyable</p>
+    <br>
+    <div class="container-button">
+        <a class="btn btn-start-now" <%= link_to t(".sign_in"), new_user_session_path %> </a>
+    </div>
   </div>
 </div>
 
@@ -79,7 +83,7 @@
   <div class="container">
     <div class="row">
       <div class="container-button">
-      <a class="btn btn-start-now" href="#" role="button">Sign up for free</a>
+        <a class="btn btn-start-now" <%= link_to t(".sign_in"), new_user_session_path %> </a>
     </div>
   </div>
 </section>
