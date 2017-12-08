@@ -22,4 +22,8 @@ class ApplicationController < ActionController::Base
   def after_sign_in_path_for(user)
     projects_path
   end
+
+  def default_url_options
+  { host: ENV["https://www.piggybnk.cool"] || "localhost:3000" }
+  end
 end

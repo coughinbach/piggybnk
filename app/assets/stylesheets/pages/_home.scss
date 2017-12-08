@@ -1,167 +1,56 @@
-.picture-coin img {
+.picture-coin img, .picture-wishlist img, .picture-calendar img, .picture-credit-card img {
   display: block;
   margin-left: auto;
   margin-right: auto;
   margin-top: 50px;
-  webkit-filter: drop-shadow(0 1px 2px rgba(0,0,0,.5));
-  -moz-filter: drop-shadow(0 1px 2px rgba(0,0,0,.5));
-  -ms-filter: drop-shadow(0 1px 2px rgba(0,0,0,.5));
-  -o-filter: drop-shadow(0 1px 2px rgba(0,0,0,.5));
-  filter: drop-shadow(0 1px 2px rgba(0,0,0,.5));
 }
 
-.picture-wishlist img {
+.semi-circle-1, .semi-circle-2, .semi-circle-3 {
+  height: 50px;
+  width: 100px;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 50px;
-  webkit-filter: drop-shadow(0 1px 2px rgba(0,0,0,.5));
-  -moz-filter: drop-shadow(0 1px 2px rgba(0,0,0,.5));
-  -ms-filter: drop-shadow(0 1px 2px rgba(0,0,0,.5));
-  -o-filter: drop-shadow(0 1px 2px rgba(0,0,0,.5));
-  filter: drop-shadow(0 1px 2px rgba(0,0,0,.5));;
-}
-
-.picture-calendar img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
-  margin-bottom: 25px;
-  webkit-filter: drop-shadow(0 1px 2px rgba(0,0,0,.5));
-  -moz-filter: drop-shadow(0 1px 2px rgba(0,0,0,.5));
-  -ms-filter: drop-shadow(0 1px 2px rgba(0,0,0,.5));
-  -o-filter: drop-shadow(0 1px 2px rgba(0,0,0,.5));
-  filter: drop-shadow(0 1px 2px rgba(0,0,0,.5));;
-}
-
-.picture-credit-card img {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 50px;
-  margin-bottom: 25px;
-  webkit-filter: drop-shadow(0 1px 2px rgba(0,0,0,.5));
-  -moz-filter: drop-shadow(0 1px 2px rgba(0,0,0,.5));
-  -ms-filter: drop-shadow(0 1px 2px rgba(0,0,0,.5));
-  -o-filter: drop-shadow(0 1px 2px rgba(0,0,0,.5));
-  filter: drop-shadow(0 1px 2px rgba(0,0,0,.5));;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  padding-top: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  color: $white;
 }
 
 .semi-circle-1 {
-  height: 50px;
-  width: 100px;
-  background-color: #FF7E6B;
-  color: white;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border-top-left-radius: 50px;
-  border-top-right-radius: 50px;
-  padding-top: 10px;
-  font-size: 28px;
-  font-weight: bold;
+  background-color: $orange;
 }
 
 .semi-circle-2 {
-  height: 50px;
-  width: 100px;
-  background-color: #A9F0D1;
-  color: #FF7E6B;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border-top-left-radius: 50px;
-  border-top-right-radius: 50px;
-  padding-top: 10px;
-  font-size: 28px;
-  font-weight: bold;
+  background-color: $yellow;
+  color: $purple;
 }
 
 .semi-circle-3 {
-  height: 50px;
-  width: 100px;
-  background-color: #FFFF99;
-  color: #6af3c5;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  border-top-left-radius: 50px;
-  border-top-right-radius: 50px;
-  padding-top: 10px;
-  font-size: 28px;
-  font-weight: bold;
+  background-color: $blue;
 }
 
-.text-intro h2 {
+.text-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+.text-card h2 {
   text-align: center;
   font-size: 30px;
-  color: $black;
+  color: $purple;
 }
 
-.text-intro p {
+.text-card p {
   margin-top: 25px;
   margin-bottom: 70px;
   padding-left: 30px;
   padding-right: 30px;
   text-align: justify;
   font-size: 16px;
-  color: $black;
-}
-
-.text-card-1 h2 {
-  text-align: center;
-  font-size: 22px;
-  color: #570A00;
-}
-
-.text-card-1 p {
-  margin-top: 25px;
-  margin-bottom: 40px;
-  padding-left: 30px;
-  padding-right: 30px;
-  text-align: justify;
-  font-size: 16px;
-  font-family: Open Sans;
-  color: #570A00;
-}
-
-.text-card-2 h2 {
-  text-align: center;
-  font-size: 22px;
-  font-family: Open Sans;
-  color: #032D1F;
-}
-
-.text-card-2 p {
-  margin-top: 30px;
-  margin-bottom: 40px;
-  padding-left: 30px;
-  padding-right: 30px;
-  text-align: justify;
-  font-size: 16px;
-  font-family: Open Sans;
-  color: #032D1F;
-}
-
-.text-card-3 h2 {
-  text-align: center;
-  font-size: 22px;
-  font-family: Open Sans;
-  color: #333300;
-}
-
-.text-card-3 p {
-  margin-top: 30px;
-  margin-bottom: 40px;
-  padding-left: 30px;
-  padding-right: 30px;
-  text-align: justify;
-  font-size: 16px;
-  font-family: Open Sans;
-  color: #333300;
-}
-
-.container-button {
-  height: 90px;
+  font-weight: lighter;
+  color: $gray;
 }
