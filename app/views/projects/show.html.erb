@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
+    <div class="col-xs-12" id="card-project-margin">
           <div class="card-project">
             <div class="flexhome">
               <div class="category-picture"><%= image_tag @project.category.photo %></div>
@@ -17,21 +17,41 @@
                 <div class="progress-bar" role="progressbar" style="width: <%= @project.saved_amount_total_cents.to_f * 100 / @project.goal_amount_total_cents %>%;" aria-valuenow="<%= @project.saved_amount_total_cents %>" aria-valuemin="0" aria-valuemax="<% @project.goal_amount_total_cents %>"></div>
               </div>
           </div>
-          <br>
     </div>
   </div>
 </div>
 
+<div class="col-xs-12 three-cards">
+  <div class="card-project">
+    <%= (@project.goal_amount_total_cents.to_f / (@project.due_date - @project.created_at.to_date).to_i).round(2) %>€
+    <br><span class="focus-info-show">per day</span>
+  </div>
+  <div class="card-project">
+    <%= (@project.saved_amount_total_cents.to_f * 100 / @project.goal_amount_total_cents).round(0) %>%
+      <br><span class="focus-info-show">saved</span>
+  </div>
+  <div class="card-project">
+    <%= (@project.due_date - Date.today).to_i %>
+    <br><span class="focus-info-show">days left</span>
+  </div>
+</div>
 
-Project name: <%= @project.name %>
-<br>
-Description: <%= @project.description %>
-<br>
-Due date: <%= @project.due_date %>
-<br>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="card-project">
+        <div class="flexhome">
+          <div class="description-show"><span class="card-title">Description</span>
+          <br><%= @project.description %></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <br>
 Group goal amount: <%= @project.goal_amount_total_cents %>€
-<br>
-Solo goal for <%= @project.name %>: <%= @userproject.goal_amount_solo_cents %>€
 <br>
 Current solo piggy bank level (for me): <%= @userproject.saved_amount_solo_cents %>€
 <br>
@@ -44,7 +64,7 @@ Daily piggy deposit: <%= @userproject.withdrawal_amount_total_cents %>€ <%= "y
   <%= userproject.user.first_name %>
 <% end %>
 <br>
-Current piggy bank level: <%= @userproject.saved_amount_solo_cents %>€
+Current piggy bank level: <%= @userproject.saved_amount_solo_cents %>€ -->
 
 <% if policy(@project).edit? %>
   <%= link_to edit_project_path(@project), class: "btn btn-primary" do %>
