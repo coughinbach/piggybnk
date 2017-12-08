@@ -1,5 +1,5 @@
 const categoryChoices = document.querySelectorAll(".category-choice label");
-const userChoices = document.querySelectorAll(".user-choice label");
+const userChoices = document.querySelectorAll(".user-choice");
 
 function changeClass(e) {
   categoryChoices.forEach(choice => choice.parentNode.parentNode.classList.remove("active"))
@@ -7,7 +7,7 @@ function changeClass(e) {
 }
 
 function changeUserClass(e) {
-  e.currentTarget.parentNode.parentNode.classList.toggle("active-user");
+  e.currentTarget.classList.toggle("active-user");
 }
 
 function selectCategory() {

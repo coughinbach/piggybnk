@@ -5,7 +5,7 @@
 
 
 // Parametres par defaut si aucun parametre choisi dans la classe
-Params = {	
+Params = {
 	"delay" : "0",						// delay avant l apparition d un element
 
 	"hide" : "window",					// quand un element arrive par le cote, d ou il arrive
