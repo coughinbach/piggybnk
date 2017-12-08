@@ -1,8 +1,7 @@
 .banner {
-  //background-image: image-url('home-banner.jpg');
-  background-image: image-url('home-banner.jpg');;
+  background-image: image-url('home-banner2.jpg');;
   text-align: center;
-  height: 100vh;
+  height: 80vh;
   background-size: cover !important;
   background-position: center;
   display: flex;
@@ -13,27 +12,42 @@
 .tagline {
   display: flex;
   justify-content: center;
-  height: 600px;
   width: 100%;
   flex-direction: column;
   text-align: center;
   p {
     color: white;
-    font-family: Open Sans;
-    font-size: 24px;
-    text-shadow: 0px 0px 5px #777;
+    font-size: 20px;
+    text-shadow: 0px 1px 3px #c5c5c5;
     color: #FFFFFF;
     margin-bottom: 50px;
     padding-left: 15px;
     padding-right: 15px;
-
+    font-weight: lighter;
   }
   h1 {
     color: white;
-    font-family: Open Sans;
-    font-size: 38px;
-    text-shadow: 0px 0px 5px #777;
+    font-weight: bolder;
+    font-size: 34px;
+    text-shadow: 0px 1px 3px #c5c5c5;
     color: #fff;
+  }
+  i {
+    font-style: normal;
+    color: #FA802D;
+  }
 
+}
+
+.btn-home {
+  background-color: $purple;
+  width: 150px;
+  margin: auto;
+  color: $white;
+  font-size: 18px;
+  padding: 12px 0px;
+  &:hover {
+    color: $white;
   }
 }
+
