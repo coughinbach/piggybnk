@@ -31,7 +31,7 @@
           </div>
         </div>
       </div>
-
+      <%= render 'form' %>
       <div class="col-xs-12 cards-container">
           <div class="cards">
             <%= @userproject.withdrawal_amount_total_cents %>€ <%= "you did it!" if @userproject.saved_amount_solo_cents >= @userproject.goal_amount_solo_cents %>
