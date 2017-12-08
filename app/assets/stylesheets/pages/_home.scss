@@ -32,6 +32,12 @@
   background-color: $blue;
 }
 
+.text-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
 .text-card h2 {
   text-align: center;
   font-size: 30px;
