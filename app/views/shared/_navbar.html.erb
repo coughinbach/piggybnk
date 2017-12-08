@@ -1,5 +1,5 @@
 <div class="navbar-wagon">
-<div class="go-back"><h6><a href="javascript:history.back()"><</a></h6></div>
+<div class="add-project"><h6><a href="/projects/new">+</a></h6></div>
 <div class="logo-pig"><h1><%= link_to "🐽", root_path%></h1></div>
 
   <!-- Right Navigation -->
@@ -10,7 +10,7 @@
       <!-- Links when logged in -->
 
       <!-- Avatar with dropdown menu -->
-      <div class="navbar-wagon-item">
+      <div class="navbar-wagon-item avatar">
         <div class="dropdown">
           <% avatar_url = current_user.default_photo_url %>
           <%= image_tag avatar_url, class: "avatar dropdown-toggle navbar-wagon-brand", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>

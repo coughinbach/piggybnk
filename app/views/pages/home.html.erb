@@ -9,9 +9,9 @@
 
 <div class="container">
   <div class="row" style="background-color: #FCFDFF">
-    <div class="picture-coin">
-      <%= image_tag("coin.png", height: 100, width: 100) %>
-    </div>
+      <div class="picture-coin showScroll scale scaleStart-0 scaleEnd-1">
+        <%= image_tag("coin.png", height: 100, width: 100) %>
+      </div>
     <div class="text-card">
       <h2>Smart savings</h2>
       <p>Piggybnk empowers you to put funds aside without it being a chore. Achieve your personal or collective goals without even thinking about it!</p>
@@ -54,6 +54,10 @@
     <div class="text-card">
       <h2>Let us do the <br>heavy lifting!</h2>
       <p>Every week, Piggybnk automatically puts aside your funds from your credit card to a savings wallet, which you can cash out whenever you like. Simple, secure, and safe.</p>
+      <a href="/users/sign_in" class="btn btn-home">Start now</a>
     </div>
   </div>
 </div>
+
+<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script> <!-- Librairie Jquery necessaire -->
+<script src="assets/javascripts/showScroll.js"></script> <!-- Fichier necessaire aux animations -->
