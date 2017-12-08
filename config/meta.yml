@@ -1,5 +1,5 @@
 meta_product_name: "Piggybnk"
 meta_title: "Piggybnk - Save up for what matters"
 meta_description: "Putting money aside for your personal and collective projects shouldn't be a chore. Piggybnk makes saving up a breeze and helps you achieve your dreams."
-meta_image: "home-banner2.jpg"                       # should exist in `app/assets/images/`
+meta_image: "meta-img.png"                       # should exist in `app/assets/images/`
 twitter_account: "@Lewagonparis"   # required for Twitter Cards
