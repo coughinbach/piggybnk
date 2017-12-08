@@ -14,10 +14,11 @@
 .description-show {
   text-align: justify;
   color: $black;
+  font-size: 15px;
 }
 
 #card-project-margin {
-  margin-top: 20px;
+  margin-top: 15px;
 }
 
 .card-project {
@@ -27,13 +28,17 @@
 
 .three-cards {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
 }
 
 .focus-info-show {
   color: $orange;
   text-align: center;
   font-size: 15px;
+}
+
+.social-stuff {
+  margin-bottom: 15px;
 }
 
 // .project-card {
