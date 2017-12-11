@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   devise_for :users,
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'pages#home'
-  # get 'profile', to: 'pages#profile', as: :profile
-  resources :projects
+  get 'dashboard', to: 'projects#index', as: :dashboard
+  resources :projects, except: :index
   resource :profile, only: [:show, :edit, :update]
   resource :creditcard, only: [:create]
   resource :payment, only: :create

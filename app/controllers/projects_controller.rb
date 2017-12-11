@@ -79,7 +79,7 @@ class ProjectsController < ApplicationController
     @project = Project.find(params[:id])
     authorize @project
     @project.delete
-    redirect_to projects_path
+    redirect_to dashboard_path
   end
 
   private
