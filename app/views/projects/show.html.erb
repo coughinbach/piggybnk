@@ -1,12 +1,21 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12" id="card-project-margin">
-      <div class="card-project">
-        <div class="flexhome">
-          <div class="category-picture"><%= image_tag @project.category.photo %></div>
-          <div class="card-info">
-            <div class="card-title"><%= link_to @project.name, project_path(@project) %></div>
-            <div class="card-date">📅 <%= @project.due_date %></div>
+          <div class="card-project">
+            <div class="flexhome">
+              <div class="category-picture"><%= image_tag @project.category.photo %></div>
+              <div class="card-info">
+                <div class="card-title"><%= link_to @project.name, project_path(@project) %></div>
+                <div class="card-date">📅 <%= @project.due_date %></div>
+              </div>
+            </div>
+              <div class="amounts-home">
+                <div class="card-amount">🎯 <%= @project.goal_amount_total_cents %>€</div>
+                <div class="goal-amount-total-home"><%= @project.saved_amount_total_cents %>€ saved</div>
+              </div>
+              <div class="progress">
+                <div class="progress-bar" role="progressbar" style="width: <%= @project.completion_percentage %>%" aria-valuenow="<%= @project.saved_amount_total_cents %>" aria-valuemin="0" aria-valuemax="<% @project.goal_amount_total_cents %>"></div>
+              </div>
           </div>
         </div>
         <div class="amounts-home">
