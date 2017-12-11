@@ -24,32 +24,32 @@ user2.save
 user3.save
 p "users done"
 
-# p "creating categories"
-# travel = Category.create!(
-#   name: "Travel",
-#   photo: File.open(Rails.root.join('db/fixtures/images/categories/travel.png'))
-# )
-# shopping = Category.create!(
-#   name: "Shopping",
-#   photo: File.open(Rails.root.join('db/fixtures/images/categories/shopping.png'))
-# )
-# event = Category.create!(
-#   name: "Event",
-#   photo: File.open(Rails.root.join('db/fixtures/images/categories/event.png'))
-# )
-# gift = Category.create!(
-#   name: "Gift",
-#   photo: File.open(Rails.root.join('db/fixtures/images/categories/gift.png'))
-# )
-# hobby = Category.create!(
-#   name: "Hobby",
-#   photo: File.open(Rails.root.join('db/fixtures/images/categories/hobby.png'))
-# )
-# other = Category.create!(
-#   name: "Other",
-#   photo: File.open(Rails.root.join('db/fixtures/images/categories/other.png'))
-# )
-# p "categories done"
+p "creating categories"
+travel = Category.create!(
+name: "Travel",
+photo: File.open(Rails.root.join('db/fixtures/images/categories/travel.png'))
+)
+shopping = Category.create!(
+name: "Shopping",
+photo: File.open(Rails.root.join('db/fixtures/images/categories/shopping.png'))
+)
+event = Category.create!(
+name: "Event",
+photo: File.open(Rails.root.join('db/fixtures/images/categories/event.png'))
+)
+gift = Category.create!(
+name: "Gift",
+photo: File.open(Rails.root.join('db/fixtures/images/categories/gift.png'))
+)
+hobby = Category.create!(
+name: "Hobby",
+photo: File.open(Rails.root.join('db/fixtures/images/categories/hobby.png'))
+)
+other = Category.create!(
+name: "Other",
+photo: File.open(Rails.root.join('db/fixtures/images/categories/other.png'))
+)
+p "categories done"
 
 p "creating projects"
 project1 = Project.create!(name: "Project 1", goal_amount_total: 200, due_date: (Date.today + 10), category: Category.find_by_name("Travel"))
