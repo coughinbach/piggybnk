@@ -31,7 +31,8 @@
             </div>
             <div class="stats-card">
               <span class="stats-description">Next saving</span>
-              <span class= "stats-number"><%= current_user.user_projects.joins(:project).where(projects: { status: "Active" }).sum("withdrawal_amount_total_cents + extra_withdrawal_cents")/100%> €</span>
+              <span class= "stats-number">€<%= current_user.user_projects.joins(:project).where(projects: { status: "Active" }).sum("withdrawal_amount_total_cents + extra_withdrawal_cents")/100%>
+              </span>
             </div>
           </div>
         </div>
@@ -50,8 +51,8 @@
               </div>
             </div>
               <div class="amounts-home">
-                <div class="card-amount">🎯 <%= humanized_money_with_symbol(project.goal_amount_total) %></div>
                 <div class="goal-amount-total-home"><%= humanized_money_with_symbol(project.saved_amount_total) %> saved</div>
+                <div class="card-amount">🎯 <%= humanized_money_with_symbol(project.goal_amount_total) %></div>
               </div>
               <div class="progress">
                 <div class="progress-bar" role="progressbar" style="width: <%= project.saved_amount_total_cents.to_f * 100 / project.goal_amount_total_cents %>%;" aria-valuenow="<%= project.saved_amount_total_cents %>" aria-valuemin="0" aria-valuemax="<% project.goal_amount_total_cents %>"></div>
@@ -62,6 +63,6 @@
         <% end %>
     </div>
   </div>
-  <%= link_to "Add project", new_project_path, class: "btn btn-primary text-center" %>
+  <%= link_to "Add project", new_project_path, class: "btn btn-primary", id: "add-project" %>
 </div>
 <!-- @goal_amount_solo -->
