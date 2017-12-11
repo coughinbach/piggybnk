@@ -42,8 +42,29 @@
   font-size: 15px;
 }
 
-.social-stuff {
+.social-area {
   margin-bottom: 15px;
+}
+
+.social {
+  border-radius: 10px;
+  height: 100px;
+  margin-bottom: 10px;
+  width: 20px;
+  transform: rotate(180deg);
+}
+
+.progress-bar-social {
+  border-radius: 10px;
+  height: 12px;
+  margin-top: 4px;
+  margin-left: 5px;
+  transform: rotate(90deg);
+  background-color: $green;
+}
+
+.fusee-emoji {
+  zoom: 200%;
 }
 
 // .project-card {
