@@ -24,9 +24,9 @@
               <span class= "stats-number">
                 <% total_saved = 0 %>
                 <% current_user.user_projects.each do |user_project| %>
-                  <% total_saved += user_project.saved_amount_solo_cents %>
+                  <% total_saved += user_project.saved_amount_solo %>
                 <% end %>
-                <%= total_saved %> €
+                <%= money_without_cents_and_with_symbol(total_saved) %>
               </span>
             </div>
             <div class="stats-card">
@@ -50,8 +50,8 @@
               </div>
             </div>
               <div class="amounts-home">
-                <div class="card-amount">🎯 <%= project.goal_amount_total_cents/100 %>€</div>
-                <div class="goal-amount-total-home"><%= project.saved_amount_total_cents/100 %>€ saved</div>
+                <div class="card-amount">🎯 <%= humanized_money_with_symbol(project.goal_amount_total) %></div>
+                <div class="goal-amount-total-home"><%= humanized_money_with_symbol(project.saved_amount_total) %> saved</div>
               </div>
               <div class="progress">
                 <div class="progress-bar" role="progressbar" style="width: <%= project.saved_amount_total_cents.to_f * 100 / project.goal_amount_total_cents %>%;" aria-valuenow="<%= project.saved_amount_total_cents %>" aria-valuemin="0" aria-valuemax="<% project.goal_amount_total_cents %>"></div>
