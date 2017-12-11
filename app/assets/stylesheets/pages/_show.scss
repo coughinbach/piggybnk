@@ -13,8 +13,9 @@
 
 .description-show {
   text-align: justify;
-  color: $black;
+  color: $purple;
   font-size: 15px;
+  margin-bottom: 12px;
 }
 
 #card-project-margin {
@@ -24,6 +25,10 @@
 .card-project {
   text-align: center;
   color: $purple;
+}
+
+.card-title {
+  color: $orange;
 }
 
 .three-cards {
@@ -37,71 +42,32 @@
   font-size: 15px;
 }
 
-.social-stuff {
+.social-area {
   margin-bottom: 15px;
 }
 
-// .project-card {
-//   background-color: #FFF6F8;
-//   height: 28vh;
-//   margin-top: 15px;
-//   border-radius: 7px;
-//   // margin-left: 25px;
-//   // margin-right: 25px;
-// }
+.social {
+  border-radius: 10px;
+  height: 100px;
+  margin-bottom: 10px;
+  width: 20px;
+  transform: rotate(180deg);
+}
 
-// .project-picture img {
-//   height: 14vh;
-//   width: 14vh;
-//   border-radius: 50%;
-//   margin-top: 20px;
-// }
+.progress-bar-social {
+  border-radius: 10px;
+  height: 12px;
+  margin-top: 4px;
+  margin-left: 5px;
+  transform: rotate(90deg);
+  background-color: $green;
+}
 
-// .project-name {
-//   margin-top: 35px;
-//   margin-left: 20px;
-//   font-weight: bold;
-// }
+.fusee-emoji {
+  zoom: 200%;
+}
 
-// .em.em-calendar {
-//   height: 1em;
-//   width: 1em;
-//   margin-bottom: 4px;
-// }
-
-// .em.em-dart {
-//   height: 1.1em;
-//   width: 1.1em;
-//   margin-bottom: 2px;
-// }
-
-// .bg-success {
-//   background-color: #00e64d;
-// }
-
-// #date {
-//   font-size: 12px;
-//   font-weight: normal;
-//   color: #8c8c8c;
-
-// }
-
-// .objectif {
-//   text-align: right;
-// }
-
-// .cards-container {
-//   display: flex;
-//   justify-content: space-between;
-//   flex-wrap: nowrap;
-//   height: 100%;
-//   width: 100%;
-// }
-
-// .cards {
-//   width: 30%;
-//   background-color: #FFF6F8;
-//   height: 16vh;
-//   width: 16vh;
-//   border-radius: 7%
-// }
+.flexsocial {
+  display: flex;
+  justify-content: space-between;
+}
