@@ -1,15 +1,15 @@
-.progress {
-  border-radius: 10px;
-  height: 20px;
-  margin-bottom: 10px;
-}
+// .progress {
+//   border-radius: 10px;
+//   height: 20px;
+//   margin-bottom: 10px;
+// }
 
-.progress-bar {
-  border-radius: 10px;
-  height: 12px;
-  margin-top: 4px;
-  margin-left: 5px;
-}
+// .progress-bar {
+//   border-radius: 10px;
+//   height: 12px;
+//   margin-top: 4px;
+//   margin-left: 5px;
+// }
 
 .description-show {
   text-align: justify;
@@ -48,7 +48,7 @@
 }
 
 .social {
-  border-radius: 10px;
+  // border-radius: 10px;
   height: 100px;
   margin-bottom: 10px;
   width: 20px;
@@ -56,19 +56,43 @@
 }
 
 .progress-bar-social {
-  border-radius: 10px;
-  height: 12px;
-  margin-top: 4px;
-  margin-left: 5px;
-  transform: rotate(90deg);
-  background-color: $green;
+  // border-radius: 10px;
+  height: 90px;
+  padding: 21px;
+  // margin-top: 4px;
+  // margin-left: 5px;
+  transform: rotate(180deg);
+  background-color: #FBD392;
 }
 
 .fusee-emoji {
   zoom: 200%;
 }
 
-.flexsocial {
+.avatar-social {
+  zoom: 30%;
+}
+
+.flex-social-area {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.flex-test {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fb-avatar {
+  border-radius: 100%;
+  zoom: 155%;
+}
+
+#leader-title {
+  margin-top: 15px;
 }
