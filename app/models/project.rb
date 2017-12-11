@@ -7,4 +7,7 @@ class Project < ApplicationRecord
   validates :due_date, presence: true
   monetize :goal_amount_total_cents
   monetize :saved_amount_total_cents
+  def completion_percentage
+    (saved_amount_total_cents.to_f * 100) / goal_amount_total_cents
+  end
 end

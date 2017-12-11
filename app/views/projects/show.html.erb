@@ -14,7 +14,7 @@
                 <div class="goal-amount-total-home"><%= @project.saved_amount_total_cents %>€ saved</div>
               </div>
               <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: <%= @project.saved_amount_total_cents.to_f * 100 / @project.goal_amount_total_cents %>%;" aria-valuenow="<%= @project.saved_amount_total_cents %>" aria-valuemin="0" aria-valuemax="<% @project.goal_amount_total_cents %>"></div>
+                <div class="progress-bar" role="progressbar" style="width: <%= @project.completion_percentage %>%" aria-valuenow="<%= @project.saved_amount_total_cents %>" aria-valuemin="0" aria-valuemax="<% @project.goal_amount_total_cents %>"></div>
               </div>
           </div>
         </div>
