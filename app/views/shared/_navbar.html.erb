@@ -15,8 +15,8 @@
           <% avatar_url = current_user.default_photo_url %>
           <%= image_tag avatar_url, class: "avatar dropdown-toggle navbar-wagon-brand", id: "navbar-wagon-menu", "data-toggle" => "dropdown" %>
           <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-            <li><a href="/projects">Dashboard</a></li>
-            <li><a href="/profile">Profile</a></li>
+            <li><%= link_to "Dashboard", dashboard_path %></li>
+            <li><%= link_to "Profile", profile_path %></li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
                 <%= t(".sign_out", default: "Log out") %>
