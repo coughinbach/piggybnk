@@ -1,7 +1,43 @@
 
 
 <div class="container">
-  <h4 id="welcome-message">Hello <%= current_user.first_name if current_user.first_name %> 🤗 </h4>
+  <div class="row">
+    <div class="col-xs-12">
+      <div id="welcome-box">
+        <div class="row">
+          <h4 class ="text-center" id="welcome-message">
+            <% if current_user.first_name  %>
+              Oink, oink, <%= current_user.first_name %> 🤗
+            <% else %>
+              Oink, oink, <%= current_user.username %> 🤗
+            <% end %>
+          </h4>
+        </div>
+        <div class="row">
+          <div id="welcome-stats">
+            <div class="stats-card">
+              <span class="stats-description">Active projects</span>
+              <span class= "stats-number"><%= current_user.projects.count%></span>
+            </div>
+            <div class="stats-card">
+              <span class = "stats-description">Total saved</span>
+              <span class= "stats-number">
+                <% total_saved = 0 %>
+                <% current_user.user_projects.each do |user_project| %>
+                  <% total_saved += user_project.saved_amount_solo_cents %>
+                <% end %>
+                <%= total_saved %> €
+              </span>
+            </div>
+            <div class="stats-card">
+              <span class="stats-description">Next saving</span>
+              <span class= "stats-number"><%= current_user.user_projects.joins(:project).where(projects: { status: "Active" }).sum("withdrawal_amount_total_cents + extra_withdrawal_cents")/100%> €</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <div class="row">
     <div class="col-xs-12">
           <% @projects.each do |project| %>
@@ -14,8 +50,8 @@
               </div>
             </div>
               <div class="amounts-home">
-                <div class="card-amount">🎯 <%= project.goal_amount_total_cents %>€</div>
-                <div class="goal-amount-total-home"><%= project.saved_amount_total_cents %>€ saved</div>
+                <div class="card-amount">🎯 <%= project.goal_amount_total_cents/100 %>€</div>
+                <div class="goal-amount-total-home"><%= project.saved_amount_total_cents/100 %>€ saved</div>
               </div>
               <div class="progress">
                 <div class="progress-bar" role="progressbar" style="width: <%= project.saved_amount_total_cents.to_f * 100 / project.goal_amount_total_cents %>%;" aria-valuenow="<%= project.saved_amount_total_cents %>" aria-valuemin="0" aria-valuemax="<% project.goal_amount_total_cents %>"></div>
@@ -25,6 +61,6 @@
         <% end %>
     </div>
   </div>
-<%= link_to "Add project", new_project_path, class: "btn btn-primary" %>
+  <%= link_to "Add project", new_project_path, class: "btn btn-primary text-center" %>
 </div>
 <!-- @goal_amount_solo -->
