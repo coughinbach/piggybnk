@@ -1,7 +1,7 @@
 
 
 <div class="container">
-  <h4>Hello <%= current_user.first_name if current_user.first_name %></h4>
+  <h4 id="welcome-message">Hello <%= current_user.first_name if current_user.first_name %> 🤗 </h4>
   <div class="row">
     <div class="col-xs-12">
           <% @projects.each do |project| %>
@@ -18,7 +18,7 @@
                 <div class="goal-amount-total-home"><%= project.saved_amount_total_cents %>€ saved</div>
               </div>
               <div class="progress">
-                <div class="progress-bar" role="progressbar" style="width: 63%;" aria-valuenow="63" aria-valuemin="0" aria-valuemax="100"></div>
+                <div class="progress-bar" role="progressbar" style="width: <%= project.saved_amount_total_cents.to_f * 100 / project.goal_amount_total_cents %>%;" aria-valuenow="<%= project.saved_amount_total_cents %>" aria-valuemin="0" aria-valuemax="<% project.goal_amount_total_cents %>"></div>
               </div>
           </div>
           <br>

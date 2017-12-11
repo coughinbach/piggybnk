@@ -44,7 +44,7 @@
   justify-content: center;
   border: 8px solid white;
   &.active {
-    border: 8px solid $blue;
+    border: 8px solid $green;
   }
 }
 
@@ -69,14 +69,14 @@
   display: flex;
   height: 50px;
   flex: 0 0 50px;
-  margin: 0px 5px;
+  margin: 5px 5px;
   border-radius: 50%;
   align-items: center;
   justify-content: center;
   background-size: cover;
-  border: 3px solid white;
+  border: 5px solid white;
   &.active-user {
-    border: 3px solid $blue;
+    border: 5px solid $green;
   }
 }
 
@@ -86,6 +86,7 @@
   justify-content: center;
   color: $purple;
   border-radius: 5px;
+  text-shadow: 1px 1px 0px $white;
   label {
     font-size: 14px;
   }

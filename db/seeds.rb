@@ -13,9 +13,15 @@ User.destroy_all
 
 
 p "creating users"
-user1 = User.create!(username: "user1", email: Faker::Internet.email, password: "password", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name)
-user2 = User.create!(username: "user2", email: Faker::Internet.email, password: "password", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name)
-user3 = User.create!(username: "user3", email: Faker::Internet.email, password: "password", first_name: Faker::Name.first_name, last_name: Faker::Name.last_name)
+user1 = User.create!(username: "the_donald", email: "donny@trump.com", password: "password", first_name: "Donald", last_name: "Trump")
+user2 = User.create!(username: "basedgod", email: "lilb@gmail.com", password: "password", first_name: "Lil", last_name: "B")
+user3 = User.create!(username: "hadrienmatringe", email: "hadrien@gmail.com", password: "password", first_name: "Hadrien", last_name: "Matringe")
+user1.remote_photo_url = "https://pbs.twimg.com/profile_images/874276197357596672/kUuht00m_400x400.jpg"
+user2.remote_photo_url = "https://pbs.twimg.com/profile_images/1248509273/39198_1571854573776_1157872547_31663366_5779158_n_400x400.jpg"
+user3.remote_photo_url = "https://pbs.twimg.com/profile_images/527783375923200000/hcrM2hqx_400x400.jpeg"
+user1.save
+user2.save
+user3.save
 p "users done"
 
 # p "creating categories"
