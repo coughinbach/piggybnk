@@ -18,32 +18,47 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+  //background-color: #ff7478;
+  border-radius: 10px;
+  margin-left: 2px;
+  margin-right: 2px;
+  margin-top: 10px;
+  //box-shadow: 1px 1px 2px rgba(0, 0, 0, 1)
+
+
 }
 
 .stats-card {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-around;
-  border-radius: 10px;
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
-  width: 70px;
-  height: 55px;
-  margin-bottom: 5px;
-  background-color: $white;
-  color: $purple;
+  height: 100%;
+  justify-content: center;
+  border-radius: 5px;
+  //box-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
+  width: 85px;
+  height: 70px;
+  margin-bottom: 0px;
+  background-color: #fc6a6c;
+  color: white;
+  margin-top: 0px;
+  padding-top: 10px;
+  //border: 2px solid white;
 }
 
 .stats-number {
   text-align : center;
-  font-weight: bold;
+  //font-weight: bold;
+  font-size: 14px;
+
+
 }
 
 .stats-description {
   font-size: 10px;
   text-align: center;
   margin: 0 2px;
-  padding-bottom: 5px;
+  padding-bottom: 10px;
 }
 
 .card-project {
@@ -121,5 +136,8 @@
 
 #add-project {
   display: block;
+  margin-top: 15px;
   margin-bottom: 20px;
+  max-width: 150px;
+  margin: 0 auto;
 }
