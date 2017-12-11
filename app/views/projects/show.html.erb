@@ -58,22 +58,20 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="card-project">
-        <div class="flexhome">
-          <div class="social-area">
-            <div class="card-title">Leaderboard</div>
-              <% @project.users.each do |user| %>
-              <span class="fusee-emoji">🚀</span>
-                <div class="progress social vertical">
-                  <div class="progress-bar-social progress-bar-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
-                  </div>
+        <div class="card-title">Leaderboard</div>
+          <div class="flexsocial">
+            <% @project.users.each do |user| %>
+            <span class="fusee-emoji">🚀</span>
+              <div class="progress social vertical">
+                <div class="progress-bar-social progress-bar-info" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
                 </div>
-                <% if user.facebook_picture_url %>
-                  <%= image_tag user.facebook_picture_url %>
-                <% else %>
-                  <%= image_tag "default-user.png" %>
-                <% end %>
+              </div>
+              <% if user.facebook_picture_url %>
+                <%= image_tag user.facebook_picture_url %>
+              <% else %>
+                <%= image_tag "default-user.png" %>
               <% end %>
-            </div>
+            <% end %>
           </div>
         </div>
       </div>
