@@ -17,6 +17,18 @@
                 <div class="progress-bar" role="progressbar" style="width: <%= @project.saved_amount_total_cents.to_f * 100 / @project.goal_amount_total_cents %>%;" aria-valuenow="<%= @project.saved_amount_total_cents %>" aria-valuemin="0" aria-valuemax="<% @project.goal_amount_total_cents %>"></div>
               </div>
           </div>
+        </div>
+      </div>
+      <%= render 'form' %>
+      <div class="col-xs-12 cards-container">
+          <div class="cards">
+            <%= @userproject.withdrawal_amount_total_cents %>€ <%= "you did it!" if @userproject.saved_amount_solo_cents >= @userproject.goal_amount_solo_cents %>
+          </div>
+          <div class="cards">
+          </div>
+          <div class="cards">
+          </div>
+      </div>
     </div>
   </div>
 </div>
