@@ -41,8 +41,8 @@
               <div class="user-choices">
                 <% User.all.each do |user| %>
 
-                  <div class="user-choice" style="background-image: url('<%= cl_image_path user.default_photo_url, width: 50, height: 50; %>')">
-                    <input class="check_boxes optional hidden" value="<%= user.id %>" name="project[user_ids][]" id="project_user_ids_<%= user.id %>" type="checkbox">
+                  <div class="user-choice" id= "<%= user.id %>" style="background-image: url('<%= cl_image_path user.default_photo_url, width: 50, height: 50; %>')">
+                    <input class="check_boxes optional" value="<%= user.id %>" name="project[user_ids][]" id="project_user_ids_<%= user.id %>" type="checkbox">
                     <div class="user-name">
                       <label for="project_user_ids_<%= user.id %>">
                       <%#= user.first_name[0] %><%#= user.last_name[0] %>
