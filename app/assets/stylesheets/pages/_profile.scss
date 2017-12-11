@@ -3,22 +3,31 @@
   display: flex;
   margin: 20px 0px;
   border-radius: 5px;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
   h3 {
-    font-size: 22px;
+    font-size: 24px;
   }
 }
 
 .profile-pic img {
-  height: 100px;
-  width: 100px;
+  height: 120px;
+  width: 120px;
   border-radius: 50%;
   border: 8px solid $green;
-  margin: 10px;
   flex: 0 0 30%;
-  margin-top: 20px;
+  margin-top: 15px;
+}
+
+.form {
+  width: 80%;
+  margin-top: 10px;
+  font-size: 12px;
+  .control-label {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
 }
 
 .name {
@@ -27,13 +36,25 @@
   align-items: center;
   justify-content: center;
   flex: 0 0 50%;
-  margin-top: 20px;
   p {
     font-size: 16px;
     font-weight: lighter;
   }
 }
 
-.bio {
-  flex: 0 0 auto;
+.payment-info {
+  margin-top: 20px;
+}
+
+.btn-profile {
+  width: 100%;
+  padding: 10px;
+  font-weight: bolder;
+  background: $purple;
+  color: white;
+  label {
+    color: $gray;
+    font-size: 18px;
+    font-weight: normal;
+  }
 }
