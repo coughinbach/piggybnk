@@ -4,7 +4,7 @@
   <h4 id="welcome-message">Hello <%= current_user.first_name if current_user.first_name %> 🤗 </h4>
   <div class="row">
     <div class="col-xs-12">
-          <% @projects.each do |project| %>
+        <% @projects.each do |project| %>
           <div class="card-project">
             <div class="flexhome">
               <div class="category-picture"><%= image_tag project.category.photo %></div>
@@ -20,6 +20,7 @@
               <div class="progress">
                 <div class="progress-bar" role="progressbar" style="width: <%= project.saved_amount_total_cents.to_f * 100 / project.goal_amount_total_cents %>%;" aria-valuenow="<%= project.saved_amount_total_cents %>" aria-valuemin="0" aria-valuemax="<% project.goal_amount_total_cents %>"></div>
               </div>
+              <%= link_to "", project_path(project), class: "card-link" %>
           </div>
           <br>
         <% end %>
