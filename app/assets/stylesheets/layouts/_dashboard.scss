@@ -24,14 +24,14 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-around;
   border-radius: 10px;
   box-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
   width: 70px;
   height: 55px;
   margin-bottom: 5px;
-  background-color: $purple;
-  color: $white;
+  background-color: $white;
+  color: $purple;
 }
 
 .stats-number {
@@ -117,4 +117,9 @@
   text-decoration: none;
   height: 100%;
   width: 100%;
+}
+
+#add-project {
+  display: block;
+  margin-bottom: 20px;
 }
