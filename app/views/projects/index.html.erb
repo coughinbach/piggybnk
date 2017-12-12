@@ -16,12 +16,12 @@
         </div>
         <div class="row">
           <div id="welcome-stats">
-            <div class="stats-card">
+            <div class="small-cards">
               ⛳<br>
               <span class= "stats-number"><%= current_user.projects.count%></span>
               <span class="stats-description">active projects</span>
             </div>
-            <div class="stats-card">
+            <div class="small-cards">
               🏦<br>
               <span class= "stats-number">
                 <% total_saved = 0 %>
@@ -32,7 +32,7 @@
               </span>
               <span class = "stats-description">total saved</span>
             </div>
-            <div class="stats-card">
+            <div class="small-cards">
               💳<br>
               <span class= "stats-number">€<%= current_user.user_projects.joins(:project).where(projects: { status: "Active" }).sum("withdrawal_amount_total_cents + extra_withdrawal_cents")/100%>
               </span>
