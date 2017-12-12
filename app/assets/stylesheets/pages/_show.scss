@@ -77,6 +77,7 @@
   margin-bottom: 10px;
   width: 20px;
   transform: rotate(180deg);
+  margin-top: -20px;
 }
 
 .progress-bar-social {
@@ -87,10 +88,12 @@
   // margin-left: 5px;
   transform: rotate(180deg);
   background-color: #FBD392;
+  z-index: 0;
 }
 
-.fusee-emoji {
-  zoom: 200%;
+.rocket {
+  zoom: 45%;
+  z-index: 1;
 }
 
 .avatar-social {
@@ -114,9 +117,18 @@
 
 .fb-avatar {
   border-radius: 100%;
-  zoom: 155%;
+  zoom: 130%;
 }
 
 #leader-title {
   margin-top: 15px;
+  text-align: center;
+}
+
+.social-board {
+  margin-bottom: 60px;
+  margin-top: 60px;
+}
+
+.arrival-line {
 }

@@ -60,25 +60,27 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <div class="card-project">
+      <div class="card-project social-board">
         <div class="card-title" id="leader-title">Leaderboard</div>
           <div class="flex-social-area">
+<!--             <div class="arrival-line"> -->
               <% @project.users.each do |user| %>
-            <div class="flex-test">
-                <div class="fusee-emoji">🚀</div>
-                <div class="progress social vertical">
-                  <div class="progress-bar-social progress-bar-info" role="progressbar" style="width: 40%;">
+              <div class="flex-test">
+                  <div class="rocket"><%= image_tag "rocket.png" %></div>
+                  <div class="progress social vertical">
+                    <div class="progress-bar-social progress-bar-info" role="progressbar" style="width: 40%;">
+                    </div>
                   </div>
-                </div>
                 <div class="avatar-social">
                   <% if user.facebook_picture_url %>
-                    <span class="fb-avatar"><%= image_tag user.facebook_picture_url %></span>
+                    <span class="fb-avatar"><%= image_tag user.facebook_picture_url, class: "fb-avatar" %></span>
                   <% else %>
                     <%= image_tag "default-user.png" %>
                   <% end %>
                 </div>
-            </div>
+              </div>
               <% end %>
+<!--             </div> -->
           </div>
         </div>
       </div>
