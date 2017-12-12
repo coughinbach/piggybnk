@@ -40,7 +40,8 @@
             <div class="col-xs-12">
               <br>
               <label class="control-label check_boxes optional">
-                Users
+                Is this a group project?
+                <p class="directions">Select collaborators from the list below:</p>
               </label>
               <input name="project[user_ids][]" value="" type="hidden">
               <% User.all.each do |user| %>
@@ -57,7 +58,6 @@
                   </span>
                 </div>
               <% end %>
-
                 <%#= f.association :users, as: :check_boxes, inline_label: true, label_method: :first_name, value_method: :id, include_blank: false %>
               </div>
             </div>
