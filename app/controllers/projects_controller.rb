@@ -20,6 +20,7 @@ class ProjectsController < ApplicationController
     @project = Project.new(project_params)
     # @project = current_user.projects.build(project_params)
     authorize @project
+    @project.goal_amount_total =  @project.goal_amount_total * 100
     if @project.save
       total_participants_count = user_ids.count + 1
       # solo goal is always total goal / number of participants
@@ -29,6 +30,7 @@ class ProjectsController < ApplicationController
       # create admin UserProject
       @userproject = UserProject.create(user: current_user, project: @project, project_admin: true, goal_amount_solo_cents: @goal_amount_solo, withdrawal_amount_total_cents: withdrawal)
       # create UserProject for each user_id present in user_ids
+
       user_ids.each do |user_id|
         UserProject.create(user_id: user_id, project: @project, goal_amount_solo_cents: @goal_amount_solo, withdrawal_amount_total_cents: withdrawal)
       end
