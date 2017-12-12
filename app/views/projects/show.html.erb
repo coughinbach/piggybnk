@@ -28,15 +28,15 @@
 <div class="container">
   <div class="row">
     <div class="col-xs-12 three-cards">
-      <div class="cards">
+      <div class="small-cards">
         <%= humanized_money((@project.goal_amount_total - @project.saved_amount_total) / (@project.due_date - @project.created_at.to_date).to_i) %> €
         <br><span class="focus-info-show">per day</span>
       </div>
-      <div class="cards">
+      <div class="small-cards">
         <%= (@project.saved_amount_total_cents.to_f * 100.fdiv(@project.goal_amount_total_cents)).round(0) %>%
           <br><span class="focus-info-show">saved</span>
       </div>
-      <div class="cards">
+      <div class="small-cards">
         <%= (@project.due_date - Date.today).to_i %>
         <br><span class="focus-info-show">days left</span>
       </div>

@@ -29,40 +29,34 @@
 }
 
 .card-title {
-  color: $orange;
+  color: $purple;
 }
 
 .three-cards {
   display: flex;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   //background-color: #ff7478;
-  border-radius: 10px;
-  margin-left: 2px;
-  margin-right: 2px;
+  border-radius: 3px;
   margin-top: 30px;
 }
 
-.cards {
+.small-cards {
   display: flex;
   flex-direction: column;
   align-items: center;
-  height: 100%;
   justify-content: center;
-  border-radius: 5px;
-  //box-shadow: 1px 1px 2px rgba(0, 0, 0, 1);
+  border-radius: 3px;
   width: 85px;
-  height: 70px;
-  margin-bottom: 0px;
-  background-color: #fc6a6c;
-  color: white;
-  margin-top: 0px;
-  padding-top: 10px;
-  //border: 2px solid white;
+  height: 85px;
+  background-color: $white;
+  box-shadow: 2px 1px 1px rgba(98, 87, 114, .3);
+  color: $purple;
+  margin: -10px 0px 10px 0px;
 }
 
 .focus-info-show {
-  color: #fcc2c3;
+  color: rgba(243, 129, 129, 0.6);
   text-align: center;
   font-size: 15px;
 }
