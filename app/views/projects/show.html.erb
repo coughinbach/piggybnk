@@ -92,22 +92,32 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-12">
-      <div class="card-project">
-        <%= render 'form' %>
+    <div class="col-xs-9 col-centered">
+      <div id="card-booster">
+       <%= render 'form' %>
       </div>
     </div>
+    <div class="col-xs-3 col-centered">
+    <% if policy(@project).edit? %>
+      <%= link_to edit_project_path(@project), class: "btn btn-piggy" do %>
+      <i class="fa fa-pencil" aria-hidden="true"></i>
+      <% end %>
+    <% end %>
+
+    <% if policy(@project).destroy? %>
+      <%= link_to project_path(@project), method: :delete, class: "btn btn-piggy" do %>
+      <i class="fa fa-trash-o" aria-hidden="true"></i>
+    <% end %>
+  <% end %>
+
+        <%= link_to project_path(@project), class: "btn btn-piggy" do %>
+        <i class="fa fa-bank" aria-hidden="true"></i>
+        <% end %>
+
   </div>
 </div>
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="card-project">
-        <%= link_to "Break the Bnk!", project_path(@project) %>
-      </div>
-    </div>
-  </div>
 </div>
+
 <!-- <br>
 Group goal amount: <%= @project.goal_amount_total_cents %>€
 <br>
@@ -122,7 +132,7 @@ Daily piggy deposit: <%= @userproject.withdrawal_amount_total_cents %>€ <%= "y
   <%= userproject.user.first_name %>
 <% end %>
 <br>
-Current piggy bank level: <%= @userproject.saved_amount_solo_cents %>€ -->
+Current piggy bank level: <%= @userproject.saved_amount_solo_cents %>€
 
 <% if policy(@project).edit? %>
   <%= link_to edit_project_path(@project), class: "btn btn-piggy" do %>
@@ -134,5 +144,5 @@ Current piggy bank level: <%= @userproject.saved_amount_solo_cents %>€ -->
   <%= link_to project_path(@project), method: :delete, class: "btn btn-piggy" do %>
     <i class="fa fa-trash-o" aria-hidden="true"></i>
   <% end %>
-<% end %>
+<% end %> -->
 

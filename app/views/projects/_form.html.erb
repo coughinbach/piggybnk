@@ -1,4 +1,4 @@
 <%= simple_form_for(@userproject) do |form| %>
-  <%= form.input :extra_withdrawal_cents %>
+  <%= form.input :extra_withdrawal_cents, label: 'Boost this project', placeholder: 'add 30e' %>
   <%= form.button :submit, class: "btn btn-piggy" %>
 <% end %>
