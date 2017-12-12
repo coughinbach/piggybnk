@@ -2,7 +2,7 @@ class WeeklyChargeJob < ApplicationJob
   queue_as :default
 
   def perform
-    if Date.today.friday?
+    if Date.today.sunday?
       #itérer sur chaque user qui a renseigné sa CC
       User.where.not(stripe_customer_id: nil).each do |user|
       #   total_withdrawal = 0

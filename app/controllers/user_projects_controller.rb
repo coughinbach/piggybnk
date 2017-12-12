@@ -4,6 +4,10 @@ class UserProjectsController < ApplicationController
     @userproject = UserProject.find(params[:id])
     @project = @userproject.project
     if @userproject.update(userproject_params)
+      @userproject.saved_amount_solo_cents = @userproject.saved_amount_solo_cents + @userproject.extra_withdrawal_cents*100
+      @userproject.update(saved_amount_solo_cents: @userproject.saved_amount_solo_cents)
+      @project.saved_amount_total_cents = @project.saved_amount_total_cents + @userproject.extra_withdrawal_cents*100
+      @project.update(saved_amount_total_cents: @project.saved_amount_total_cents)
       flash[:notice] = "Oink Oink!"
       redirect_to project_path(@project)
     else
