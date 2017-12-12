@@ -72,8 +72,8 @@
 }
 
 .social {
-  // border-radius: 10px;
-  height: 100px;
+  min-height: 100px;
+  // height: 30px;
   margin-bottom: 10px;
   width: 12px;
   transform: rotate(180deg);
@@ -82,7 +82,7 @@
 
 .progress-bar-social {
   // border-radius: 10px;
-  height: 90px;
+  // height: 90px;
   padding: 21px;
   // margin-top: 4px;
   // margin-left: 5px;
@@ -120,7 +120,7 @@
 
 .fb-avatar {
   border-radius: 100%;
-  zoom: 130%;
+  zoom: 128%;
 }
 
 #leader-title {
@@ -133,5 +133,9 @@
   margin-top: 60px;
 }
 
-.arrival-line {
+.finish-line {
+  background-image: linear-gradient(45deg, #808080 25%, transparent 25%), linear-gradient(-45deg, #808080 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #808080 75%), linear-gradient(-45deg, transparent 75%, #808080 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  color: white;
 }

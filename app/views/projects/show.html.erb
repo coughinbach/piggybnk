@@ -62,27 +62,26 @@
     <div class="col-xs-12">
       <div class="card-project social-board">
         <div class="card-title" id="leader-title">Leaderboard</div>
+          <div class="finish-line">'</div>
           <div class="flex-social-area">
-<!--             <div class="arrival-line"> -->
-              <% @project.users.each do |user| %>
-              <div class="flex-test">
-                <div class="goal-amount-total-home"><% saved = user.user_projects.where(project: @project).first %>
-                <%= saved.saved_amount_solo_cents %>€</div>
-                  <div class="rocket"><%= image_tag "rocket.png" %></div>
-                  <div class="progress social vertical">
-                    <div class="progress-bar-social progress-bar-info" role="progressbar" style="width: 40%;">
-                    </div>
+            <% @project.users.each do |user| %>
+            <div class="flex-test">
+              <div class="goal-amount-total-home"><% saved = user.user_projects.where(project: @project).first %>
+              <%= money_without_cents(saved.saved_amount_solo) %> €</div>
+                <div class="rocket"><%= image_tag "rocket.png" %></div>
+                <div class="progress social vertical">
+                  <div class="progress-bar-social progress-bar-info" role="progressbar" style="height: <%= saved.saved_amount_solo_cents.fdiv(saved.goal_amount_solo_cents) * 100 %>px;">
                   </div>
-                <div class="avatar-social">
-                  <% if user.facebook_picture_url %>
-                    <span class="fb-avatar"><%= image_tag user.facebook_picture_url, class: "fb-avatar" %></span>
-                  <% else %>
-                    <%= image_tag "default-user.png" %>
-                  <% end %>
                 </div>
+              <div class="avatar-social">
+                <% if user.facebook_picture_url %>
+                  <span class="fb-avatar"><%= image_tag user.facebook_picture_url, class: "fb-avatar" %></span>
+                <% else %>
+                  <%= image_tag "default-user.png" %>
+                <% end %>
               </div>
-              <% end %>
-<!--             </div> -->
+            </div>
+            <% end %>
           </div>
         </div>
       </div>
