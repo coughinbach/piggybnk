@@ -18,10 +18,6 @@
   margin-bottom: 12px;
 }
 
-#card-project-margin {
-  margin-top: 15px;
-}
-
 .card-project {
   text-align: left;
   color: $purple;
@@ -32,16 +28,16 @@
   color: $purple;
 }
 
-.three-cards {
+.small-cards {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  //background-color: #ff7478;
+  flex-direction: row;
   border-radius: 3px;
   margin-top: 30px;
 }
 
-.small-cards {
+.small-card {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,7 +48,7 @@
   background-color: $white;
   box-shadow: 2px 1px 1px rgba(98, 87, 114, .3);
   color: $purple;
-  margin: -10px 0px 10px 0px;
+  margin: -10px 0px;
 }
 
 .focus-info-show {
@@ -132,4 +128,31 @@
   background-size: 20px 20px;
   background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
   color: white;
+}
+
+.btn-small {
+  padding: 10px;
+  width: 50px;
+  height: 50px;
+  font-weight: bolder;
+  background: $purple;
+  color: white;
+  font-size: 18px;
+  margin: 0px 20px;
+}
+
+.user-actions {
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  padding: 5px 20px;
+}
+
+.edit_user_project {
+} label {
+  margin: 10px;
+} .btn {
+  margin-bottom: 20px;
 }
