@@ -9,7 +9,13 @@
 UserProject.destroy_all
 Project.destroy_all
 User.destroy_all
-Category.destroy_all
+
+# *****************************************************************************
+# IMPORTANT IMPORTANT
+# ne pas faire Category.destroy_all + reseed des catégories SAUF si
+# vous venez de faire un db:drop. Si on recharge tout à chaque fois, ça suce
+# mon bandwidth Cloudinary :)
+# *****************************************************************************
 
 
 p "creating users"
@@ -24,32 +30,32 @@ user2.save
 user3.save
 p "users done"
 
-p "creating categories"
-travel = Category.create!(
-name: "Travel",
-photo: File.open(Rails.root.join('db/fixtures/images/categories/travel.png'))
-)
-shopping = Category.create!(
-name: "Shopping",
-photo: File.open(Rails.root.join('db/fixtures/images/categories/shopping.png'))
-)
-event = Category.create!(
-name: "Event",
-photo: File.open(Rails.root.join('db/fixtures/images/categories/event.png'))
-)
-gift = Category.create!(
-name: "Gift",
-photo: File.open(Rails.root.join('db/fixtures/images/categories/gift.png'))
-)
-hobby = Category.create!(
-name: "Hobby",
-photo: File.open(Rails.root.join('db/fixtures/images/categories/hobby.png'))
-)
-other = Category.create!(
-name: "Other",
-photo: File.open(Rails.root.join('db/fixtures/images/categories/other.png'))
-)
-p "categories done"
+# p "creating categories"
+# travel = Category.create!(
+# name: "Travel",
+# photo: File.open(Rails.root.join('db/fixtures/images/categories/travel.png'))
+# )
+# shopping = Category.create!(
+# name: "Shopping",
+# photo: File.open(Rails.root.join('db/fixtures/images/categories/shopping.png'))
+# )
+# event = Category.create!(
+# name: "Event",
+# photo: File.open(Rails.root.join('db/fixtures/images/categories/event.png'))
+# )
+# gift = Category.create!(
+# name: "Gift",
+# photo: File.open(Rails.root.join('db/fixtures/images/categories/gift.png'))
+# )
+# hobby = Category.create!(
+# name: "Hobby",
+# photo: File.open(Rails.root.join('db/fixtures/images/categories/hobby.png'))
+# )
+# other = Category.create!(
+# name: "Other",
+# photo: File.open(Rails.root.join('db/fixtures/images/categories/other.png'))
+# )
+# p "categories done"
 
 p "creating projects"
 project1 = Project.create!(name: "Trip to Greece", goal_amount_total_cents: 40000, due_date: (Date.today + 20), category: Category.find_by_name("Travel"), saved_amount_total_cents: 14000)
