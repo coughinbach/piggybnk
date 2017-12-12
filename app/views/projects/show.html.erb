@@ -3,7 +3,7 @@
 
 <div class="container">
   <div class="row">
-    <div class="col-xs-12" id="card-project-margin">
+    <div class="col-xs-12">
       <div class="card-project">
         <div class="flexhome">
           <div class="category-picture"><%= image_tag @project.category.photo %>
@@ -23,99 +23,89 @@
       </div>
     </div>
   </div>
-</div>
-
-<div class="container">
-  <div class="row">
-    <div class="col-xs-12 three-cards">
-      <div class="cards">
-        <%= humanized_money((@project.goal_amount_total - @project.saved_amount_total) / (@project.due_date - @project.created_at.to_date).to_i) %> €
-        <br><span class="focus-info-show">per day</span>
-      </div>
-      <div class="cards">
-        <%= (@project.saved_amount_total_cents.to_f * 100.fdiv(@project.goal_amount_total_cents)).round(0) %>%
-          <br><span class="focus-info-show">saved</span>
-      </div>
-      <div class="cards">
-        <%= (@project.due_date - Date.today).to_i %>
-        <br><span class="focus-info-show">days left</span>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <div class="card-project">
-        <div class="flexhome">
-          <div class="description-show"><span class="card-title">Description</span>
-          <br><%= @project.description %></div>
+      <div class="small-cards">
+        <div class="small-card">
+          <%= humanized_money((@project.goal_amount_total - @project.saved_amount_total) / (@project.due_date - @project.created_at.to_date).to_i) %> €
+          <br><span class="focus-info-show">per day</span>
+        </div>
+        <div class="small-card">
+          <%= (@project.saved_amount_total_cents.to_f * 100.fdiv(@project.goal_amount_total_cents)).round(0) %>%
+          <br><span class="focus-info-show">saved</span>
+        </div>
+        <div class="small-card">
+          <%= (@project.due_date - Date.today).to_i %>
+          <br><span class="focus-info-show">days left</span>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-<div class="container">
   <div class="row">
     <div class="col-xs-12">
-      <div class="card-project social-board">
-        <div class="card-title" id="leader-title">Leaderboard</div>
-          <div class="flex-social-area">
-<!--             <div class="arrival-line"> -->
-              <% @project.users.each do |user| %>
-              <div class="flex-test">
-                <div class="goal-amount-total-home"><% saved = user.user_projects.where(project: @project).first %>
-                <%= saved.saved_amount_solo_cents %>€</div>
-                  <div class="rocket"><%= image_tag "rocket.png" %></div>
-                  <div class="progress social vertical">
-                    <div class="progress-bar-social progress-bar-info" role="progressbar" style="width: 40%;">
-                    </div>
-                  </div>
-                <div class="avatar-social">
-                  <% if user.facebook_picture_url %>
-                    <span class="fb-avatar"><%= image_tag user.facebook_picture_url, class: "fb-avatar" %></span>
-                  <% else %>
-                    <%= image_tag "default-user.png" %>
-                  <% end %>
-                </div>
-              </div>
-              <% end %>
-<!--             </div> -->
+      <div class="card-project">
+        <div class="flexhome">
+          <div class="description-show">
+            <span class="card-title">Description</span>
+            <br><%= @project.description %>
           </div>
         </div>
       </div>
     </div>
   </div>
-</div>
-
-<div class="container">
   <div class="row">
-    <div class="col-xs-9 col-centered">
-      <div id="card-booster">
-       <%= render 'form' %>
+    <div class="col-xs-12">
+      <div class="card-project social-board">
+        <div class="card-title" id="leader-title">Leaderboard</div>
+        <div class="finish-line">'</div>
+        <div class="flex-social-area">
+          <% @project.users.each do |user| %>
+          <div class="flex-test">
+            <div class="goal-amount-total-home"><% saved = user.user_projects.where(project: @project).first %>
+              <%= money_without_cents(saved.saved_amount_solo) %> €</div>
+              <div class="rocket"><%= image_tag "rocket.png" %></div>
+              <div class="progress social vertical">
+                <div class="progress-bar-social progress-bar-info" role="progressbar" style="height: <%= saved.saved_amount_solo_cents.fdiv(saved.goal_amount_solo_cents) * 100 %>px;">
+                </div>
+              </div>
+              <div class="avatar-social">
+                <% if user.facebook_picture_url %>
+                <span class="fb-avatar"><%= image_tag user.facebook_picture_url, class: "fb-avatar" %></span>
+                <% else %>
+                <%= image_tag "default-user.png" %>
+                <% end %>
+              </div>
+            </div>
+            <% end %>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-xs-3 col-centered">
-    <% if policy(@project).edit? %>
-      <%= link_to edit_project_path(@project), class: "btn btn-piggy" do %>
-      <i class="fa fa-pencil" aria-hidden="true"></i>
-      <% end %>
-    <% end %>
-
-    <% if policy(@project).destroy? %>
-      <%= link_to project_path(@project), method: :delete, class: "btn btn-piggy" do %>
-      <i class="fa fa-trash-o" aria-hidden="true"></i>
-    <% end %>
-  <% end %>
-
-        <%= link_to project_path(@project), class: "btn btn-piggy" do %>
-        <i class="fa fa-bank" aria-hidden="true"></i>
-        <% end %>
-
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="card-project">
+          <%= render 'form' %>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="user-actions">
+          <%= link_to "Break the Bnk!", project_path(@project), class: "btn btn-piggy" %>
+          <% if policy(@project).edit? %>
+          <%= link_to edit_project_path(@project), class: "btn btn-small" do %>
+          <i class="fa fa-pencil" aria-hidden="true"></i>
+          <% end %>
+          <% end %>
+          <% if policy(@project).destroy? %>
+          <%= link_to project_path(@project), method: :delete, class: "btn btn-small" do %>
+          <i class="fa fa-trash-o" aria-hidden="true"></i>
+          <% end %>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
 </div>
 
 <!-- <br>
@@ -132,17 +122,6 @@ Daily piggy deposit: <%= @userproject.withdrawal_amount_total_cents %>€ <%= "y
   <%= userproject.user.first_name %>
 <% end %>
 <br>
-Current piggy bank level: <%= @userproject.saved_amount_solo_cents %>€
+Current piggy bank level: <%= @userproject.saved_amount_solo_cents %>€ -->
 
-<% if policy(@project).edit? %>
-  <%= link_to edit_project_path(@project), class: "btn btn-piggy" do %>
-    <i class="fa fa-pencil" aria-hidden="true"></i>
-  <% end %>
-<% end %>
-
-<% if policy(@project).destroy? %>
-  <%= link_to project_path(@project), method: :delete, class: "btn btn-piggy" do %>
-    <i class="fa fa-trash-o" aria-hidden="true"></i>
-  <% end %>
-<% end %> -->
 
