@@ -66,6 +66,8 @@
 <!--             <div class="arrival-line"> -->
               <% @project.users.each do |user| %>
               <div class="flex-test">
+                <div class="goal-amount-total-home"><% saved = user.user_projects.where(project: @project).first %>
+                <%= saved.saved_amount_solo_cents %>€</div>
                   <div class="rocket"><%= image_tag "rocket.png" %></div>
                   <div class="progress social vertical">
                     <div class="progress-bar-social progress-bar-info" role="progressbar" style="width: 40%;">
