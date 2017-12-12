@@ -62,7 +62,6 @@
   justify-content: center;
   color: $purple;
   border-radius: 5px;
-
 }
 
 .user-choices {
@@ -84,15 +83,10 @@
 }
 
 .user-picture {
-  // display: flex;
   height: 55px;
   width: 55px;
   margin-right: 10px;
-  // flex: 0 0 50px;
-  // margin: 5px 5px;
   border-radius: 50%;
-  // align-items: center;
-  // justify-content: center;
   background-size: cover;
   border: 5px solid white;
   &.active-user {
