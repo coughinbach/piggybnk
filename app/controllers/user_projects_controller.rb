@@ -12,7 +12,7 @@ class UserProjectsController < ApplicationController
       @userproject.update(saved_amount_solo_cents: @userproject.saved_amount_solo_cents)
       @project.saved_amount_total_cents = @project.saved_amount_total_cents + @userproject.extra_withdrawal_cents
       @project.update(saved_amount_total_cents: @project.saved_amount_total_cents)
-      flash[:notice] = "Oink Oink!"
+      flash[:notice] = "Oink, oink! You succesfully added to your PiggyBnk !"
       redirect_to project_path(@project)
     else
       render :new

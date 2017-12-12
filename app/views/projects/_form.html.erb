@@ -1,4 +1,4 @@
 <%= simple_form_for(@userproject) do |form| %>
-  <%= form.input :extra_withdrawal_cents, placeholder: "Type '10' for example" %>
+  <%= form.input :extra_withdrawal_cents, placeholder: "Type '10' for example", input_html: {value: nil } %>
   <%= form.button :submit, class: "btn btn-piggy" %>
 <% end %>

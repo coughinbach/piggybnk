@@ -34,7 +34,7 @@
             </div>
             <div class="stats-card">
               💳<br>
-              <span class= "stats-number">€<%= current_user.user_projects.joins(:project).where(projects: { status: "Active" }).sum("withdrawal_amount_total_cents + extra_withdrawal_cents")/100%>
+              <span class= "stats-number">€<%= current_user.user_projects.joins(:project).where(projects: { status: "Active" }).sum("withdrawal_amount_total_cents + total_weekly_withdrawal_cents")/100%>
               </span>
               <span class="stats-description">next debit</span>
             </div>
