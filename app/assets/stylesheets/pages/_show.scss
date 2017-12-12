@@ -81,9 +81,9 @@
 }
 
 .progress-bar-social {
-  // border-radius: 10px;
+  border-radius: 30px;
   // height: 90px;
-  padding: 21px;
+  padding: 10px;
   // margin-top: 4px;
   // margin-left: 5px;
   transform: rotate(180deg);
@@ -92,7 +92,7 @@
 }
 
 .rocket {
-  zoom: 30%;
+  zoom: 35%;
   z-index: 1;
 }
 
@@ -110,6 +110,10 @@
   align-items: flex-end;
   margin-top: 15px;
   margin-bottom: 15px;
+  position: absolute;
+  right: 0;
+  left: 0;
+  bottom: 10px;
 }
 
 .flex-test {
@@ -131,6 +135,7 @@
 .social-board {
   margin-bottom: 60px;
   margin-top: 60px;
+  height: 400px;
 }
 
 .finish-line {
@@ -138,4 +143,8 @@
   background-size: 20px 20px;
   background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
   color: white;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 60px;
 }
