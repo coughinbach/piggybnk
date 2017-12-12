@@ -11,14 +11,6 @@
     margin-bottom: 50px;
     margin-top: 0px;
   }
-  .btn-new-project {
-    width: 100%;
-    padding: 10px;
-    font-weight: bolder;
-    background: $purple;
-    color: white;
-    margin-top: 20px;
-  }
   label {
     color: $gray;
     font-size: 18px;
@@ -62,7 +54,6 @@
   justify-content: center;
   color: $purple;
   border-radius: 5px;
-
 }
 
 .user-choices {
@@ -84,15 +75,10 @@
 }
 
 .user-picture {
-  // display: flex;
   height: 55px;
   width: 55px;
   margin-right: 10px;
-  // flex: 0 0 50px;
-  // margin: 5px 5px;
   border-radius: 50%;
-  // align-items: center;
-  // justify-content: center;
   background-size: cover;
   border: 5px solid white;
   &.active-user {
@@ -111,3 +97,12 @@
     font-size: 14px;
   }
 }
+
+.btn-new-project {
+    width: 100%;
+    padding: 10px;
+    font-weight: bolder;
+    background: $purple;
+    color: white;
+    margin-top: 20px;
+  }
