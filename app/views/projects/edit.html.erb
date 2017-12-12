@@ -35,7 +35,7 @@
               <%= f.input :due_date, as: :string, label: "Change due date", input_html: {class: "datepicker"} %>
             </div>
             <div class="col-xs-12">
-              <label class="control-label integer required" for="project_goal_amount_total_cents"><abbr title="required">*</abbr>How much do you need? (in €)</label><input class="form-control numeric integer required" step="1" value="" name="project[goal_amount_total_cents]" id="project_goal_amount_total_cents" type="number">
+              <label class="control-label integer required" for="project_goal_amount_total_cents"><abbr title="required">*</abbr>How much do you need? (in €)</label><input class="form-control numeric integer required" step="1" value="" name="project[goal_amount_total_cents]" id="project_goal_amount_total_cents" placeholder="<%= @project.goal_amount_total_cents %>" type="number">
             </div>
             <div class="col-xs-12">
               <br>
