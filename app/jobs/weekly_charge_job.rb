@@ -12,7 +12,7 @@ class WeeklyChargeJob < ApplicationJob
       #     total_withdrawal += user_project.withdrawal_amount_total_cents if user_project.project.status == "Active"
       #   end
       # following line is equivalent to commented lines above -- SQL is faster than an each
-      total_withdrawal_cents = user.user_projects.joins(:project).where(projects: { status: "Active" }).sum("withdrawal_amount_total_cents + extra_withdrawal_cents")
+      total_withdrawal_cents = user.user_projects.joins(:project).where(projects: { status: "Active" }).sum("withdrawal_amount_total_cents + total_weekly_withdrawal_cents")
         #charge la somme totale de tous les withdrawals de ses projets actifs
         if total_withdrawal_cents > 0
           charge = Stripe::Charge.create(
@@ -21,10 +21,10 @@ class WeeklyChargeJob < ApplicationJob
             description:  "Payment for all your active projects.",
             currency:     "eur"
           )
-        puts "Congrats! You have stuffed #{total_withdrawal_cents} into your Piggy Bank."
+        puts "Congrats! You have stuffed #{total_withdrawal_cents/100} € into your Piggy Bank."
         end
         user.user_projects.each do |user_project|
-          user_project.update(extra_withdrawal_cents: 0)
+          user_project.update(total_weekly_withdrawal_cents: 0)
         end
       end
     end
