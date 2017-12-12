@@ -32,16 +32,16 @@
   color: $purple;
 }
 
-.three-cards {
+.small-cards {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  //background-color: #ff7478;
+  flex-direction: row;
   border-radius: 3px;
   margin-top: 30px;
 }
 
-.small-cards {
+.small-card {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -52,7 +52,7 @@
   background-color: $white;
   box-shadow: 2px 1px 1px rgba(98, 87, 114, .3);
   color: $purple;
-  margin: -10px 0px 10px 0px;
+  margin: -10px 0px;
 }
 
 .focus-info-show {
