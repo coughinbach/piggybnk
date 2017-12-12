@@ -1,5 +1,5 @@
 const categoryChoices = document.querySelectorAll(".category-choice label");
-const userChoices = document.querySelectorAll(".user-choice");
+const userChoices = document.querySelectorAll(".user-fake-label");
 
 function changeClass(e) {
   categoryChoices.forEach(choice => choice.parentNode.parentNode.classList.remove("active"))
@@ -7,11 +7,20 @@ function changeClass(e) {
 }
 
 function changeUserClass(e) {
-  e.currentTarget.classList.toggle("active-user");
-  const id = e.currentTarget.id;
-  const input = document.getElementById("project_user_ids_" + id);
-  input.checked = true;
-  console.log(input)
+  const checkboxId = e.currentTarget.dataset.checkboxTarget;
+  const checkboxTarget = document.getElementById(checkboxId);
+  if (checkboxTarget.checked === true) {
+    checkboxTarget.checked = false;
+  } else {
+    checkboxTarget.checked = true;
+  }
+  const pictureTargetId = e.currentTarget.dataset.pictureTarget;
+  const pictureTarget = document.getElementById(pictureTargetId);
+  pictureTarget.classList.toggle("active-user");
+  // const id = e.currentTarget.id;
+  // const input = document.getElementById("project_user_ids_" + id);
+  // input.checked = true;
+  // console.log(input)
 }
 
 function selectCategory() {
