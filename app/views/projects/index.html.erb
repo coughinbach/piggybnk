@@ -51,7 +51,7 @@
               <div class="category-picture"><%= image_tag project.category.photo %></div>
               <div class="card-info">
                 <div class="card-title"><%= link_to project.name, project_path(project) %></div>
-                <div class="card-date">📅 <%= project.due_date %></div>
+                <div class="card-date">📅 <%= project.due_date.strftime("%b %d, %Y ")  %></div>
               </div>
             </div>
               <div class="amounts-home">
