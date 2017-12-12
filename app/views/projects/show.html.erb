@@ -14,8 +14,8 @@
           </div>
         </div>
         <div class="amounts-home">
-          <div class="card-amount">🎯 <%= @project.goal_amount_total_cents %>€</div>
-          <div class="goal-amount-total-home"><%= @project.saved_amount_total_cents %>€ saved</div>
+          <div class="goal-amount-total-home"><%= humanized_money_with_symbol(@project.saved_amount_total) %> saved</div>
+          <div class="card-amount">🎯 <%= humanized_money_with_symbol(@project.goal_amount_total) %></div>
         </div>
         <div class="progress">
           <div class="progress-bar" role="progressbar" style="width: <%= @project.completion_percentage %>%" aria-valuenow="<%= @project.saved_amount_total_cents %>" aria-valuemin="0" aria-valuemax="<% @project.goal_amount_total_cents %>"></div>
@@ -91,6 +91,15 @@
     <div class="col-xs-12">
       <div class="card-project">
         <%= render 'form' %>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="card-project">
+        <%= link_to "Break the Bnk!", project_path(@project) %>
       </div>
     </div>
   </div>
