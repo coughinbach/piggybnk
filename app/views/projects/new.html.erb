@@ -26,7 +26,6 @@
                 </div>
               </div>
               <% end %>
-
             </div>
             <div class="col-xs-12">
               <%= f.input :description, label: "Describe your project" %>
@@ -60,8 +59,9 @@
               <% end %>
                 <%#= f.association :users, as: :check_boxes, inline_label: true, label_method: :first_name, value_method: :id, include_blank: false %>
               </div>
+              <%= f.submit "Add project", class: "btn btn-new-project" %>
             </div>
-            <%= f.submit "Add project", class: "btn btn-new-project" %>
+
             <% end %>
           </div>
         </div>
