@@ -21,6 +21,10 @@ class ProjectPolicy < ApplicationPolicy
     user_is_owner?
   end
 
+  def breakbnk?
+    user_is_owner?
+  end
+
   private
 
   def user_is_owner?
