@@ -7,16 +7,13 @@
       <div class="form-post">
         <h1>Edit "<%= @project.name %>"</h1>
         <%= simple_form_for [@project] do |f| %>
-        <div class="row">
-          <div class="col-xs-12">
-            <%= f.input :name, label: "Name"%>
-          </div>
-          <div class="col-xs-12">
-            <label class="control-label radio_buttons required"><abbr title="required">*</abbr>Change category</label>
-            <input name="project[category_id]" value="" type="hidden">
-            <div class="category-choices">
-
-              <% Category.all.each do |category| %>
+          <%= f.input :name, label: "Name"%>
+          <label class="control-label radio_buttons required"><abbr title="required">*</abbr>
+            Change category
+          </label>
+          <input name="project[category_id]" value="" type="hidden">
+          <div class="category-choices">
+            <% Category.all.each do |category| %>
               <div class="category-choice" style="background-image: url('<%= cl_image_path category.photo, width: 140, height: 140; %>')">
                 <input class="radio_buttons required hidden" value="<%= category.id %>" name="project[category_id]" id="project_category_id_<%= category.id %>" type="radio">
                 <div class="category-name">
@@ -25,45 +22,33 @@
                   </label>
                 </div>
               </div>
-              <% end %>
-
-            </div>
-            <div class="col-xs-12">
-              <%= f.input :description, label: "Change description" %>
-            </div>
-            <div class="col-xs-12">
-              <%= f.input :due_date, as: :string, label: "Change due date", input_html: {class: "datepicker"} %>
-            </div>
-            <div class="col-xs-12">
-              <label class="control-label integer required" for="project_goal_amount_total_cents"><abbr title="required">*</abbr>How much do you need? (in €)</label><input class="form-control numeric integer required" step="1" value="" name="project[goal_amount_total_cents]" id="project_goal_amount_total_cents" placeholder="<%= @project.goal_amount_total_cents %>" type="number">
-            </div>
-            <div class="col-xs-12">
-              <br>
-              <label class="control-label check_boxes optional">
-                Is this a group project?
-                <p class="directions">Select collaborators from the list below:</p>
-              </label>
-              <input name="project[user_ids][]" value="" type="hidden">
-              <% User.all.each do |user| %>
-                <div class="user-choice">
-                  <div class="user-picture" id= "pic_<%= user.id %>" style="background-image: url('<%= cl_image_path user.default_photo_url, width: 55, height: 55; %>')">
-                  </div>
-                  <div class="user-fake-label" data-checkbox-target="project_user_ids_<%= user.id %>" data-picture-target="pic_<%= user.id %>">
-                    <%= user.first_name %> <%= user.last_name %>
-                  </div>
-                  <span class="checkbox">
-                    <label for="project_user_ids_<%= user.id %>">
-                      <input class="check_boxes optional hidden" value="<%= user.id %>" name="project[user_ids][]" id="project_user_ids_<%= user.id %>" type="checkbox">
-                    </label>
-                  </span>
-                </div>
-              <% end %>
-              </div>
-              <%= f.submit "Save changes", class: "btn btn-new-project" %>
-            </div>
             <% end %>
           </div>
-        </div>
+          <%= f.input :description, label: "Change description" %>
+          <%= f.input :due_date, as: :string, label: "Change due date", input_html: {class: "datepicker"} %>
+          <label class="control-label integer required" for="project_goal_amount_total_cents"><abbr title="required">*</abbr>How much do you need? (in €)</label><input class="form-control numeric integer required" step="1" value="" name="project[goal_amount_total_cents]" id="project_goal_amount_total_cents" placeholder="<%= @project.goal_amount_total_cents %>" type="number">
+          <br>
+          <label class="control-label check_boxes optional">
+            Is this a group project?
+            <p class="directions">Select collaborators from the list below:</p>
+          </label>
+          <input name="project[user_ids][]" value="" type="hidden">
+          <% User.all.each do |user| %>
+            <div class="user-choice">
+              <div class="user-picture" id= "pic_<%= user.id %>" style="background-image: url('<%= cl_image_path user.default_photo_url, width: 55, height: 55; %>')">
+              </div>
+              <div class="user-fake-label" data-checkbox-target="project_user_ids_<%= user.id %>" data-picture-target="pic_<%= user.id %>">
+                <%= user.first_name %> <%= user.last_name %>
+              </div>
+              <span class="checkbox">
+                <label for="project_user_ids_<%= user.id %>">
+                  <input class="check_boxes optional hidden" value="<%= user.id %>" name="project[user_ids][]" id="project_user_ids_<%= user.id %>" type="checkbox">
+                </label>
+              </span>
+            </div>
+          <% end %>
+          <%= f.submit "Save changes", class: "btn btn-new-project" %>
+        <% end %>
       </div>
     </div>
   </div>
