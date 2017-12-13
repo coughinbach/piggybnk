@@ -10,7 +10,7 @@
           </div>
           <div class="card-info">
             <div class="card-title"><%= link_to @project.name, project_path(@project) %></div>
-            <div class="card-date">📅 <%= @project.due_date %></div>
+            <div class="card-date">📅 <%= @project.due_date.strftime("%b %d, %Y ") %></div>
           </div>
         </div>
         <div class="amounts-home">
@@ -50,11 +50,11 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="card-project">
-        <div class="flexhome">
-          <div class="description-show">
-            <span class="card-title">Description</span>
+        <div class="description-flex">
+          <div class="card-title" id="text-center">Description</div>
+            <div class="description-show">
             <br><%= @project.description %>
-          </div>
+            </div>
         </div>
       </div>
     </div>
@@ -72,7 +72,7 @@
 
                 <div class="rocket"><%= image_tag "rocket.png", class: "rocket" %></div>
 
-<!-- Fallback, marche sans JS --> 
+<!-- Fallback, marche sans JS -->
 <!--                   <div class="progress-bar-social progress-bar-info" role="progressbar" style="height: <%= (222 * saved.saved_amount_solo_cents).fdiv(saved.goal_amount_solo_cents) %>px;">
                   </div> -->
 
@@ -97,7 +97,9 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="card-project">
-          <%= render 'form' %>
+          <div class="boost-form">
+            <%= render 'form' %>
+          </div>
         </div>
       </div>
     </div>
