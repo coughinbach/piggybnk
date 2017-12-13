@@ -9,11 +9,26 @@
 // Leaderboard
 .social-board {
   height: 400px;
+  margin-bottom: -10px;
+  margin-top: 20px;
 }
 
 #leader-title {
   margin-top: 15px;
   text-align: center;
+}
+
+.social-area {
+  margin-bottom: 15px;
+}
+
+.social {
+  min-height: 100px;
+  // height: 30px;
+  margin-bottom: 10px;
+  width: 12px;
+  transform: rotate(180deg);
+  margin-top: -20px;
 }
 
 .finish-line {
@@ -51,6 +66,7 @@
   z-index: 1;
 }
 
+
 .progress-bar-social {
   border-radius: 30px;
   width: 15px;
@@ -66,6 +82,7 @@
   border-color: $purple;
   height: 45px;
   width: 45px;
+  margin-top: 5px;
 }
 
 // User Actions

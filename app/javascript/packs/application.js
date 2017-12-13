@@ -5,3 +5,5 @@ import { selectUsers } from '../components/new-form';
 selectUsers();
 
 import "../plugins/flatpickr"
+import "../components/progressbar"
+
