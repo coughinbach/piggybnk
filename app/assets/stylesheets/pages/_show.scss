@@ -82,9 +82,9 @@
 
 .progress-bar-social {
   border-radius: 30px;
+  width: 15px;
+  margin-top: -15px;
   // height: 90px;
-  padding: 10px;
-  // margin-top: 4px;
   // margin-left: 5px;
   transform: rotate(180deg);
   background-color: #FBD392;
@@ -92,15 +92,17 @@
 }
 
 .rocket {
-  height: 50px;
+  height: 45px;
   z-index: 1;
 }
 
-.avatar-social {
-  zoom: 20%;
-  border: solid 20px;
+.avatar-social img {
+  border: solid 5px;
   border-radius: 50%;
   border-color: $purple;
+  height: 45px;
+  width: 45px;
+  // margin-top: 90px;
 }
 
 .flex-social-area {
@@ -124,7 +126,7 @@
 
 .fb-avatar {
   border-radius: 100%;
-  zoom: 128%;
+  // zoom: 128%;
 }
 
 #leader-title {
