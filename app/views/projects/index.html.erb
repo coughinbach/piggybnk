@@ -45,11 +45,16 @@
     <div class="col-xs-12">
       <% @projects.each do |project| %>
       <div class="card-project">
+
+
         <div class="flexhome">
           <div class="category-picture"><%= image_tag project.category.photo %></div>
           <div class="card-info">
             <div class="card-title"><%= link_to project.name, project_path(project) %></div>
-            <div class="card-date">📅 <%= project.due_date.strftime("%b %d, %Y ")  %></div>
+            <div class="card-date">
+              📅 <%= project.due_date.strftime("%b %d, %Y ")  %>
+              <p class="completed"><%= "COMPLETED 🏅" if project.status == "Completed" %></p>
+            </div>
           </div>
         </div>
         <div class="amounts-home">
@@ -59,12 +64,15 @@
         <div class="progress">
           <div class="progress-bar" role="progressbar" style="width: <%= project.saved_amount_total_cents.to_f * 100 / project.goal_amount_total_cents %>%;" aria-valuenow="<%= project.saved_amount_total_cents %>" aria-valuemin="0" aria-valuemax="<% project.goal_amount_total_cents %>"></div>
         </div>
-        <%= link_to "", project_path(project), class: "card-link" %>
+        <%= link_to "", project_path(project), class: "#{'card-inactive' if project.status == 'Completed'} card-link" %>
       </div>
       <% end %>
+
+
       <br>
       <%= link_to "Add project", new_project_path, class: "btn btn-piggy", id: "add-project" %>
       <br>
+
     </div>
   </div>
 </div>
