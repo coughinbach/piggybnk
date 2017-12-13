@@ -13,12 +13,20 @@
   }
   label {
     color: $gray;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: normal;
   }
   p {
     font-size: 12px;
     color: #aaa;
+  }
+}
+
+#project_name, #project_description, #project_due_date, #project_goal_amount_total_cents {
+  border-radius: 30px;
+  &:focus {
+    box-shadow: none;
+    border: 3px solid $green;
   }
 }
 
@@ -72,6 +80,7 @@
 .user-fake-label {
   font-size: 15px;
   cursor: pointer;
+  color: $gray;
 }
 
 .user-picture {
