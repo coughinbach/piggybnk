@@ -69,11 +69,13 @@
           <div class="flex-test">
             <div class="goal-amount-total-home"><% saved = user.user_projects.where(project: @project).first %>
               <%= money_without_cents(saved.saved_amount_solo) %> €</div>
-              <div class="rocket"><%= image_tag "rocket.png" %></div>
-              <div class="progress social vertical">
-                <div class="progress-bar-social progress-bar-info" role="progressbar" style="height: <%= saved.saved_amount_solo_cents.fdiv(saved.goal_amount_solo_cents) * 100 %>px;">
-                </div>
-              </div>
+            
+                <div class="rocket"><%= image_tag "rocket.png", class: "rocket" %></div>
+<!--                 <div class="progress social vertical"> -->
+                  <div class="progress-bar-social progress-bar-info" role="progressbar" style="height: <%= (222 * saved.saved_amount_solo_cents).fdiv(saved.goal_amount_solo_cents) %>px;">
+                  </div>
+<!--                 </div> -->
+
               <div class="avatar-social">
                 <% if user.facebook_picture_url %>
                 <span class="fb-avatar"><%= image_tag user.facebook_picture_url, class: "fb-avatar" %></span>
