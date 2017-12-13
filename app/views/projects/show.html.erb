@@ -68,8 +68,7 @@
           <% @project.users.each do |user| %>
           <div class="flex-test">
             <div class="goal-amount-total-home"><% saved = user.user_projects.where(project: @project).first %>
-              <%= money_without_cents(saved.saved_amount_solo) %> €</div>
-
+              <span class="Count"><%= money_without_cents(saved.saved_amount_solo) %> </span>€</div>
                 <div class="rocket"><%= image_tag "rocket.png", class: "rocket" %></div>
 
 <!-- Fallback, marche sans JS -->
