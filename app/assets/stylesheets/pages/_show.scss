@@ -1,16 +1,4 @@
-// .progress {
-//   border-radius: 10px;
-//   height: 20px;
-//   margin-bottom: 10px;
-// }
-
-// .progress-bar {
-//   border-radius: 10px;
-//   height: 12px;
-//   margin-top: 4px;
-//   margin-left: 5px;
-// }
-
+// Description
 .description-show {
   text-align: justify;
   color: $purple;
@@ -18,81 +6,25 @@
   margin-bottom: 12px;
 }
 
-.card-project {
-  text-align: left;
-  color: $purple;
-  position: relative;
+// Leaderboard
+.social-board {
+  height: 400px;
 }
 
-.card-title {
-  color: $purple;
-}
-
-.small-cards {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: row;
-  border-radius: 3px;
-  margin-top: 30px;
-}
-
-.small-card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  border-radius: 3px;
-  width: 85px;
-  height: 85px;
-  background-color: $white;
-  box-shadow: 2px 1px 1px rgba(98, 87, 114, .3);
-  color: $purple;
-  margin: -10px 0px;
-}
-
-.focus-info-show {
-  color: rgba(243, 129, 129, 0.6);
+#leader-title {
+  margin-top: 15px;
   text-align: center;
-  font-size: 15px;
 }
 
-.social-area {
-  margin-bottom: 15px;
-}
-
-.social {
-  min-height: 100px;
-  // height: 30px;
-  margin-bottom: 10px;
-  width: 12px;
-  transform: rotate(180deg);
-  margin-top: -20px;
-}
-
-.progress-bar-social {
-  border-radius: 30px;
-  width: 15px;
-  margin-top: -15px;
-  // height: 90px;
-  // margin-left: 5px;
-  transform: rotate(180deg);
-  background-color: #FBD392;
-  z-index: 0;
-}
-
-.rocket {
-  height: 45px;
-  z-index: 1;
-}
-
-.avatar-social img {
-  border: solid 5px;
-  border-radius: 50%;
-  border-color: $purple;
-  height: 45px;
-  width: 45px;
-  // margin-top: 90px;
+.finish-line {
+  background-image: linear-gradient(45deg, #808080 25%, transparent 25%), linear-gradient(-45deg, #808080 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #808080 75%), linear-gradient(-45deg, transparent 75%, #808080 75%);
+  background-size: 20px 20px;
+  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+  color: white;
+  position: absolute;
+  right: 0;
+  left: 0;
+  top: 60px;
 }
 
 .flex-social-area {
@@ -114,33 +46,29 @@
   align-items: center;
 }
 
-.fb-avatar {
-  border-radius: 100%;
-  // zoom: 128%;
+.rocket {
+  height: 45px;
+  z-index: 1;
 }
 
-#leader-title {
-  margin-top: 15px;
-  text-align: center;
+.progress-bar-social {
+  border-radius: 30px;
+  width: 15px;
+  margin-top: -15px;
+  transform: rotate(180deg);
+  background-color: #FBD392;
+  z-index: 0;
 }
 
-.social-board {
-  margin-bottom: 60px;
-  margin-top: 60px;
-  height: 400px;
+.avatar-social img {
+  border: solid 5px;
+  border-radius: 50%;
+  border-color: $purple;
+  height: 45px;
+  width: 45px;
 }
 
-.finish-line {
-  background-image: linear-gradient(45deg, #808080 25%, transparent 25%), linear-gradient(-45deg, #808080 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #808080 75%), linear-gradient(-45deg, transparent 75%, #808080 75%);
-  background-size: 20px 20px;
-  background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
-  color: white;
-  position: absolute;
-  right: 0;
-  left: 0;
-  top: 60px;
-}
-
+// User Actions
 .btn-small {
   padding: 10px;
   width: 50px;

@@ -6,6 +6,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  min-height: calc(100vh - 170px);
+  padding-bottom: 10px;
   h3 {
     font-size: 24px;
   }
@@ -20,16 +22,6 @@
   margin-top: 15px;
 }
 
-.form {
-  width: 80%;
-  margin-top: 10px;
-  font-size: 12px;
-  .control-label {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
-}
-
 .name {
   display: flex;
   flex-direction: column;
@@ -42,8 +34,28 @@
   }
 }
 
-.payment-info {
-  margin-top: 20px;
+.form {
+  width: 80%;
+  margin-top: 10px;
+  font-size: 12px;
+  .control-label {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
 }
+
+.credit-card {
+  position: relative;
+  min-height: 100px;
+  width: 235px;
+  border: 1px solid gray;
+  border-radius: 5px;
+  background-color: $light-gray;
+  margin: 15px auto;
+  padding: 5px;
+  font-size: 15px;
+}
+
+
 
 
