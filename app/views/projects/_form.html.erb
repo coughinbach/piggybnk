@@ -1,9 +1,4 @@
-<input name="utf8" value="✓" type="hidden">
-<input name="_method" value="patch" type="hidden"><input name="authenticity_token" value="v8HkbXLLrnhF6oq4akuefEF/Xyc3vgkKsd4smrXT9IIaUUyuF9N0L27cXjpXNtl0WnoNuKs4H80I9DTJI2zokg==" type="hidden">
-<div class="form-group integer required user_project_extra_withdrawal_cents">
-  <label class="control-label integer required" for="user_project_extra_withdrawal_cents">
-    Add a € boost to your Bnk!
-  </label>
-  <input class="form-control numeric integer required" placeholder="Add 30€'s worth of gas" step="1" name="user_project[extra_withdrawal_cents]" id="user_project_extra_withdrawal_cents" type="number">
-</div>
-<input name="commit" value="Blast off!" class="btn btn-piggy" data-disable-with="Blast off!" type="submit">
+<%= simple_form_for(@userproject) do |form| %>
+  <%= form.input :extra_withdrawal_cents, label: "Add a € boost to your Bnk!", placeholder: "Add 30€'s worth of fuel",  input_html: { value: nil }, required: true %>
+  <%= form.submit "Blast off!", class: "btn btn-piggy" %>
+<% end %>
