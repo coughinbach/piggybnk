@@ -72,9 +72,9 @@ ActiveRecord::Schema.define(version: 20171212154033) do
     t.string "facebook_picture_url"
     t.string "token"
     t.datetime "token_expiry"
+    t.string "photo"
     t.json "credit_card"
     t.string "stripe_customer_id"
-    t.string "photo"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
