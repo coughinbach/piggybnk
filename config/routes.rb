@@ -3,7 +3,11 @@ Rails.application.routes.draw do
     controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
   root to: 'pages#home'
   get 'dashboard', to: 'projects#index', as: :dashboard
-  resources :projects, except: :index
+  resources :projects, except: :index do
+    member do
+      get "breakbnk", to: "projects#breakbnk"
+    end
+  end
   resource :profile, only: [:show, :edit, :update]
   resource :creditcard, only: [:create]
   resource :payment, only: :create
