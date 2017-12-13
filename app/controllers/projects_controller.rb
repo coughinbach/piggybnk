@@ -84,6 +84,13 @@ class ProjectsController < ApplicationController
     redirect_to dashboard_path
   end
 
+  def breakbnk
+    @project = Project.find(params[:id])
+    authorize @project
+    @project.update(status: "Completed")
+    redirect_to dashboard_path
+  end
+
   private
 
   def user_ids

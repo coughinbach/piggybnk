@@ -7,10 +7,13 @@
   text-align: center;
   color: white;
   font-size: 18px;
+  border: none;
 }
 .alert-info {
-  background: $orange;
+  background: $white;
+  color: $purple;
 }
 .alert-warning {
-  background: $orange;
+  background: $white;
+  color: $orange;
 }

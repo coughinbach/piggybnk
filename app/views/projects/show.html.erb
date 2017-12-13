@@ -62,7 +62,7 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="card-project social-board">
-        <div class="card-title" id="leader-title">Leaderboard</div>
+        <div class="card-title" id="leader-title">🏆 Leaderboard 🏆</div>
         <div class="finish-line">'</div>
         <div class="flex-social-area">
           <% @project.users.each do |user| %>
@@ -72,6 +72,7 @@
 
                 <div class="rocket"><%= image_tag "rocket.png", class: "rocket" %></div>
 
+<!-- Fallback, marche sans JS --> 
 <!--                   <div class="progress-bar-social progress-bar-info" role="progressbar" style="height: <%= (222 * saved.saved_amount_solo_cents).fdiv(saved.goal_amount_solo_cents) %>px;">
                   </div> -->
 
@@ -103,37 +104,15 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="user-actions">
-          <%= link_to "Break the Bnk!", project_path(@project), class: "btn btn-piggy" %>
+          <%= link_to "🎉 Break the Bnk! 🔨", breakbnk_project_path(@project), class: "btn btn-break-bnk" %>
           <% if policy(@project).edit? %>
-          <%= link_to edit_project_path(@project), class: "btn btn-small" do %>
-          <i class="fa fa-pencil" aria-hidden="true"></i>
-          <% end %>
+          <%= link_to "✏️", edit_project_path(@project), class: "btn btn-small" %>
           <% end %>
           <% if policy(@project).destroy? %>
-          <%= link_to project_path(@project), method: :delete, class: "btn btn-small" do %>
-          <i class="fa fa-trash-o" aria-hidden="true"></i>
-          <% end %>
+          <%= link_to "🗑️", project_path(@project), method: :delete, class: "btn btn-small" %>
           <% end %>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<!-- <br>
-Group goal amount: <%= @project.goal_amount_total_cents %>€
-<br>
-Current solo piggy bank level (for me): <%= @userproject.saved_amount_solo_cents %>€
-<br>
-Current collective piggy bank level (for group): <%= @project.saved_amount_total_cents %>€
-<br>
-Daily piggy deposit: <%= @userproject.withdrawal_amount_total_cents %>€ <%= "you did it!" if @userproject.saved_amount_solo_cents >= @userproject.goal_amount_solo_cents %>
-<br>
-<%= @project.user_projects.count %> Piggy collaborators for <%= @project.name %> :
-<% @project.user_projects.each do |userproject| %>
-  <%= userproject.user.first_name %>
-<% end %>
-<br>
-Current piggy bank level: <%= @userproject.saved_amount_solo_cents %>€ -->
-
-

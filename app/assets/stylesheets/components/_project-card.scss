@@ -1,32 +1,14 @@
-#welcome-message {
-  color: $white;
-  font-size: 16px;
-  font-weight: bold;
-  margin-top: 25px;
-}
-
-.stats-number {
-  text-align : center;
-  font-size: 16px;
-}
-
-.stats-description {
-  font-size: 12px;
-  text-align: center;
-  margin: 0 2px;
-  padding-bottom: 10px;
-  color: #fcc2c3;
-}
-
 .card-project {
   background-color: $white;
   position: relative;
   border-radius: 3px;
   background-color: $white;
   box-shadow: 2px 1px 1px rgba(98, 87, 114, .3);
-  color: $purple;
   padding: 5px 20px;
   margin: 30px 0px 0px 0px;
+  text-align: left;
+  color: $purple;
+  position: relative;
 }
 
 .flexhome {
@@ -44,6 +26,7 @@
 .card-title {
   font-weight: bolder;
   font-size: 20px;
+  color: $purple;
 }
 
 .card-date {
@@ -99,10 +82,8 @@
   opacity: 0;
 }
 
-#add-project {
-  display: block;
-  margin-top: 15px;
-  margin-bottom: 20px;
-  max-width: 150px;
-  margin: 0 auto;
+.card-inactive {
+  z-index: 4;
+  background: $white;
+  opacity: 0.3;
 }
