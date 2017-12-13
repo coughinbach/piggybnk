@@ -70,11 +70,9 @@
             <div class="goal-amount-total-home"><% saved = user.user_projects.where(project: @project).first %>
               <%= money_without_cents(saved.saved_amount_solo) %> €</div>
 
-                <div class="rocket"><%= image_tag "rocket.png", class: "rocket" %></div>
-<!--                 <div class="progress social vertical"> -->
-                  <div class="progress-bar-social progress-bar-info" role="progressbar" style="height: <%= (222 * saved.saved_amount_solo_cents).fdiv(saved.goal_amount_solo_cents) %>px;">
-                  </div>
-<!--                 </div> -->
+              <div class="rocket"><%= image_tag "rocket.png", class: "rocket" %></div>
+              <div class="progress-bar-social progress-bar-info" role="progressbar" style="height: <%= (222 * saved.saved_amount_solo_cents).fdiv(saved.goal_amount_solo_cents) %>px;">
+              </div>
 
               <div class="avatar-social">
                 <% if user.facebook_picture_url %>
@@ -99,7 +97,7 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="user-actions">
-          <%= link_to "🎉 Break the Bnk! 🔨", project_path(@project), class: "btn btn-break-bnk" %>
+          <%= link_to "🎉 Break the Bnk! 🔨", breakbnk_project_path(@project), class: "btn btn-break-bnk" %>
           <% if policy(@project).edit? %>
           <%= link_to "✏️", edit_project_path(@project), class: "btn btn-small" %>
           <% end %>
@@ -111,21 +109,3 @@
     </div>
   </div>
 </div>
-
-<!-- <br>
-Group goal amount: <%= @project.goal_amount_total_cents %>€
-<br>
-Current solo piggy bank level (for me): <%= @userproject.saved_amount_solo_cents %>€
-<br>
-Current collective piggy bank level (for group): <%= @project.saved_amount_total_cents %>€
-<br>
-Daily piggy deposit: <%= @userproject.withdrawal_amount_total_cents %>€ <%= "you did it!" if @userproject.saved_amount_solo_cents >= @userproject.goal_amount_solo_cents %>
-<br>
-<%= @project.user_projects.count %> Piggy collaborators for <%= @project.name %> :
-<% @project.user_projects.each do |userproject| %>
-  <%= userproject.user.first_name %>
-<% end %>
-<br>
-Current piggy bank level: <%= @userproject.saved_amount_solo_cents %>€ -->
-
-
