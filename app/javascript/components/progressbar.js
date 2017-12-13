@@ -1,7 +1,9 @@
-jQuery(document).ready(function(){
-  jQuery('.skillbar').each(function(){
-    jQuery(this).find('.skillbar-bar').animate({
-      width:jQuery(this).attr('data-percent')
+$(document).ready(function(){
+  $('.progress-bar-social').each(function(){
+    $(this).find('.progress-bar-social-bar').animate({
+      height:$(this).attr('data-percent')
     },6000);
   });
 });
+
+

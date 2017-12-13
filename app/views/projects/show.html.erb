@@ -71,12 +71,13 @@
               <%= money_without_cents(saved.saved_amount_solo) %> €</div>
 
                 <div class="rocket"><%= image_tag "rocket.png", class: "rocket" %></div>
-                  <div class="progress-bar-social progress-bar-info" role="progressbar" style="height: <%= (222 * saved.saved_amount_solo_cents).fdiv(saved.goal_amount_solo_cents) %>px;">
-                  </div>
 
-<!--                   <div class="skillbar clearfix " data-percent="20%">
-  <div class="skillbar-bar" style="background: #e67e22;"></div>
-</div> -->
+<!--                   <div class="progress-bar-social progress-bar-info" role="progressbar" style="height: <%= (222 * saved.saved_amount_solo_cents).fdiv(saved.goal_amount_solo_cents) %>px;">
+                  </div> -->
+
+                  <div class="progress-bar-social clearfix progress-bar-info" role="progressbar" data-percent="<%= (222 * saved.saved_amount_solo_cents).fdiv(saved.goal_amount_solo_cents) %>px">
+                    <div class="progress-bar-social-bar" ></div>
+                  </div>
 
               <div class="avatar-social">
                 <% if user.facebook_picture_url %>
