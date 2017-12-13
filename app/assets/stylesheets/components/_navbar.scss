@@ -80,9 +80,10 @@
   line-height: 22px !important;
   padding: 15px 20px;
   border-bottom: 2px solid $light-gray;
-  li > a:last-child {
-  border: none;
-  }
+}
+
+.navbar-dropdown-menu li:last-child a {
+  border-bottom: none;
 }
 
 .navbar-dropdown-menu li > a:hover {
