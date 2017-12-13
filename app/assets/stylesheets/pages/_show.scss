@@ -6,6 +6,12 @@
   margin-bottom: 12px;
 }
 
+.description-flex {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+
 // Leaderboard
 .social-board {
   height: 400px;
@@ -110,4 +116,9 @@
 
 .edit_user_project {
   padding: 15px 0px;
+}
+
+#text-center {
+  text-align: center;
+  padding-top: 10px;
 }
