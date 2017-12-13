@@ -10,7 +10,7 @@
           </div>
           <div class="card-info">
             <div class="card-title"><%= link_to @project.name, project_path(@project) %></div>
-            <div class="card-date">📅 <%= @project.due_date %></div>
+            <div class="card-date">📅 <%= @project.due_date.strftime("%b %d, %Y ") %></div>
           </div>
         </div>
         <div class="amounts-home">
@@ -97,7 +97,9 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="card-project">
-          <%= render 'form' %>
+          <div class="boost-form">
+            <%= render 'form' %>
+          </div>
         </div>
       </div>
     </div>
