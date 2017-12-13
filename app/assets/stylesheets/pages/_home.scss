@@ -41,16 +41,13 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
-}
-
-.text-card h2 {
+  h2 {
   text-align: center;
   font-size: 30px;
   color: $purple;
   font-weight: bolder;
-}
-
-.text-card p {
+  }
+  p {
   margin-top: 25px;
   margin-bottom: 70px;
   padding-left: 30px;
@@ -59,4 +56,8 @@
   font-size: 16px;
   font-weight: lighter;
   color: $gray;
+  }
+  .fa-heart {
+    color: $white;
+  }
 }

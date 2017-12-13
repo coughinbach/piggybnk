@@ -62,14 +62,14 @@
   <div class="row">
     <div class="col-xs-12">
       <div class="card-project social-board">
-        <div class="card-title" id="leader-title">Leaderboard</div>
+        <div class="card-title" id="leader-title">🏆 Leaderboard 🏆</div>
         <div class="finish-line">'</div>
         <div class="flex-social-area">
           <% @project.users.each do |user| %>
           <div class="flex-test">
             <div class="goal-amount-total-home"><% saved = user.user_projects.where(project: @project).first %>
               <%= money_without_cents(saved.saved_amount_solo) %> €</div>
-            
+
                 <div class="rocket"><%= image_tag "rocket.png", class: "rocket" %></div>
 <!--                 <div class="progress social vertical"> -->
                   <div class="progress-bar-social progress-bar-info" role="progressbar" style="height: <%= (222 * saved.saved_amount_solo_cents).fdiv(saved.goal_amount_solo_cents) %>px;">
@@ -99,16 +99,12 @@
     <div class="row">
       <div class="col-xs-12">
         <div class="user-actions">
-          <%= link_to "Break the Bnk!", breakbnk_project_path(@project), class: "btn btn-piggy" %>
+          <%= link_to "🎉 Break the Bnk! 🔨", project_path(@project), class: "btn btn-break-bnk" %>
           <% if policy(@project).edit? %>
-          <%= link_to edit_project_path(@project), class: "btn btn-small" do %>
-          <i class="fa fa-pencil" aria-hidden="true"></i>
-          <% end %>
+          <%= link_to "✏️", edit_project_path(@project), class: "btn btn-small" %>
           <% end %>
           <% if policy(@project).destroy? %>
-          <%= link_to project_path(@project), method: :delete, class: "btn btn-small" do %>
-          <i class="fa fa-trash-o" aria-hidden="true"></i>
-          <% end %>
+          <%= link_to "🗑️", project_path(@project), method: :delete, class: "btn btn-small" %>
           <% end %>
         </div>
       </div>
