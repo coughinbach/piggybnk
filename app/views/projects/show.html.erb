@@ -29,7 +29,7 @@
         <div class="small-card">
           💶
           <br>
-          <span class= "stats-number"><%= humanized_money((@project.goal_amount_total - @project.saved_amount_total) / (@project.due_date - @project.created_at.to_date).to_i) %> €</span>
+          <span class= "stats-number"><%= humanized_money(((@project.user_projects.where(user: current_user).first.goal_amount_solo_cents - @project.user_projects.where(user: current_user).first.saved_amount_solo_cents) / 100) / (@project.due_date - @project.created_at.to_date).to_i) %> €</span>
           <span class="stats-description">per day</span>
         </div>
         <div class="small-card">
@@ -67,7 +67,7 @@
         <div class="flex-social-area">
           <% @project.users.each do |user| %>
           <div class="flex-test">
-            <div class="goal-amount-total-home"><% saved = user.user_projects.where(project: @project).first %>
+            <div class="goal-amount-total-home-social"><% saved = user.user_projects.where(project: @project).first %>
               <span class="Count"><%= money_without_cents(saved.saved_amount_solo) %> </span>€</div>
                 <div class="rocket"><%= image_tag "rocket.png", class: "rocket" %></div>
 
