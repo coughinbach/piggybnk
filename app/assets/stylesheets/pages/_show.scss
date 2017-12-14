@@ -16,11 +16,14 @@
 .social-board {
   height: 400px;
   margin-top: 20px;
+  background-size: cover;
+  background-image: image-url("space.jpeg");
 }
 
 #leader-title {
   margin-top: 15px;
   text-align: center;
+  color: white;
 }
 
 .social-area {
