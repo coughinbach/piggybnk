@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
-#
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-
 UserProject.destroy_all
 Project.destroy_all
 User.destroy_all
@@ -19,15 +11,20 @@ User.destroy_all
 
 
 p "creating users"
-user1 = User.create!(username: "the_donald", email: "donny@trump.com", password: "password", first_name: "Donald", last_name: "Trump")
-user2 = User.create!(username: "basedgod", email: "lilb@gmail.com", password: "password", first_name: "Lil", last_name: "B")
-user3 = User.create!(username: "hadrienmatringe", email: "hadrien@gmail.com", password: "password", first_name: "Hadrien", last_name: "Matringe")
-user1.remote_photo_url = "https://pbs.twimg.com/profile_images/874276197357596672/kUuht00m_400x400.jpg"
-user2.remote_photo_url = "https://pbs.twimg.com/profile_images/1248509273/39198_1571854573776_1157872547_31663366_5779158_n_400x400.jpg"
-user3.remote_photo_url = "https://pbs.twimg.com/profile_images/527783375923200000/hcrM2hqx_400x400.jpeg"
+user1 = User.create!(username: "jobrannmous", email: "jobrann@mail.com", password: "password", first_name: "Jobrann", last_name: "Mous")
+user2 = User.create!(username: "adri", email: "adrien@mail.com", password: "password", first_name: "Adrien", last_name: "Moison")
+user3 = User.create!(username: "lolahfbk", email: "lola@mail.com", password: "password", first_name: "Lola", last_name: "Hfbk")
+user4 = User.create!(username: "clementlf", email: "clement@mail.com", password: "password", first_name: "Clément", last_name: "Flinois")
+
+user1.remote_photo_url = "http://res.cloudinary.com/dxlfgmaxy/image/upload/v1513258489/jobrann_m4ew6v.png"
+user2.remote_photo_url = "http://res.cloudinary.com/dxlfgmaxy/image/upload/v1513257046/adrien_iadrk5.jpg"
+user3.remote_photo_url = "http://res.cloudinary.com/dxlfgmaxy/image/upload/v1513257046/lola_iwmf6e.jpg"
+user4.remote_photo_url = "http://res.cloudinary.com/dxlfgmaxy/image/upload/v1513257046/clement_iixvhl.jpg"
+
 user1.save
 user2.save
 user3.save
+user4.save
 p "users done"
 
 # p "creating categories"
@@ -58,13 +55,14 @@ p "users done"
 # p "categories done"
 
 p "creating projects"
-project1 = Project.create!(name: "Trip to Greece", goal_amount_total_cents: 40000, due_date: (Date.today + 20), category: Category.find_by_name("Travel"), saved_amount_total_cents: 14000)
-project2 = Project.create!(name: "We Love Green", goal_amount_total_cents: 15000, due_date: (Date.today + 15), category: Category.find_by_name("Event"), saved_amount_total_cents: 8000)
-project3 = Project.create!(name: "Birthday gift", goal_amount_total_cents: 20000, due_date: (Date.today + 10), category: Category.find_by_name("Gift"))
+project_solo_completed = Project.create!(name: "Christmas Presents", goal_amount_total_cents: 15000, due_date: (Date.today + 8), category: Category.find_by_name("Gift"), saved_amount_total_cents: 15000, status: "Completed")
+project_group_active = Project.create!(name: "Summer Roadtrip!", goal_amount_total_cents: 160000, due_date: (Date.today + 150), category: Category.find_by_name("Travel"), saved_amount_total_cents: 72100)
 p "projects done"
 
 p "creating userprojects"
-userproject1 = UserProject.create!(user: user1, project: project1, withdrawal_amount_total_cents: 2000, saved_amount_solo_cents: 4000)
-userproject2 = UserProject.create!(user: user2, project: project1, withdrawal_amount_total_cents: 2000, saved_amount_solo_cents: 10000)
-userproject3 = UserProject.create!(user: user1, project: project2, withdrawal_amount_total_cents: 2000, saved_amount_solo_cents: 8000)
+userproject1 = UserProject.create!(user: user1, project: project_solo_completed, saved_amount_solo_cents: 15000)
+userproject2 = UserProject.create!(user: user1, project: project_group_active, saved_amount_solo_cents: 5000, goal_amount_solo_cents: 40000)
+userproject3 = UserProject.create!(user: user2, project: project_group_active, saved_amount_solo_cents: 25700, goal_amount_solo_cents: 40000)
+userproject4 = UserProject.create!(user: user3, project: project_group_active, saved_amount_solo_cents: 18300, goal_amount_solo_cents: 40000)
+userproject5 = UserProject.create!(user: user4, project: project_group_active, saved_amount_solo_cents: 23100, goal_amount_solo_cents: 40000)
 p "userprojects done"

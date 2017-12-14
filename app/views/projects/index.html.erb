@@ -62,7 +62,7 @@
           <div class="card-amount">🎯 <%= humanized_money(project.goal_amount_total) %> €</div>
         </div>
         <div class="progress">
-          <div class="progress-bar" role="progressbar" style="width: <%= project.saved_amount_total_cents.to_f * 100 / project.goal_amount_total_cents %>%;" aria-valuenow="<%= project.saved_amount_total_cents %>" aria-valuemin="0" aria-valuemax="<% project.goal_amount_total_cents %>"></div>
+          <div class="progress-bar" role="progressbar" style="width: <%= (project.saved_amount_total_cents.to_f * 100 / project.goal_amount_total_cents) - 4 %>%;" aria-valuenow="<%= project.saved_amount_total_cents %>" aria-valuemin="0" aria-valuemax="<% project.goal_amount_total_cents %>"></div>
         </div>
         <%= link_to "", project_path(project), class: "#{'card-inactive' if project.status == 'Completed'} card-link" %>
       </div>
