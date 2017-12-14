@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
 
   def index
     @userprojects = policy_scope(UserProject)
-    @projects = @userprojects.map { |u_p| u_p.project }
+    @projects = @userprojects.order(created_at: :desc).map { |u_p| u_p.project }.sort_by {|obj| obj.status }
   end
 
   def show
