@@ -64,39 +64,41 @@
       </div>
     </div>
   </div>
-  <div class="row">
-    <div class="col-xs-12">
-      <div class="card-project social-board">
-        <div class="card-title" id="leader-title">🏆 Leaderboard 🏆</div>
-        <div class="finish-line">'</div>
-        <div class="flex-social-area">
-          <% @project.users.each do |user| %>
-          <div class="flex-test">
-            <div class="goal-amount-total-home-social"><% saved = user.user_projects.where(project: @project).first %>
-              <span class="Count"><%= money_without_cents(saved.saved_amount_solo) %> </span>€</div>
-                <div class="rocket"><%= image_tag "rocket.png", class: "rocket" %></div>
+  <% if @project.user_projects.count > 1 %>
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="card-project social-board">
+          <div class="card-title" id="leader-title">🏆 Leaderboard 🏆</div>
+          <div class="finish-line">'</div>
+          <div class="flex-social-area">
+            <% @project.users.each do |user| %>
+            <div class="flex-test">
+              <div class="goal-amount-total-home-social"><% saved = user.user_projects.where(project: @project).first %>
+                <span class="Count"><%= money_without_cents(saved.saved_amount_solo) %> </span>€</div>
+                  <div class="rocket"><%= image_tag "rocket.png", class: "rocket" %></div>
 
-<!-- Fallback, marche sans JS -->
-<!--                   <div class="progress-bar-social progress-bar-info" role="progressbar" style="height: <%= (222 * saved.saved_amount_solo_cents).fdiv(saved.goal_amount_solo_cents) %>px;">
-                  </div> -->
+  <!-- Fallback, marche sans JS -->
+  <!--                   <div class="progress-bar-social progress-bar-info" role="progressbar" style="height: <%= (222 * saved.saved_amount_solo_cents).fdiv(saved.goal_amount_solo_cents) %>px;">
+                    </div> -->
 
-                  <div class="progress-bar-social clearfix progress-bar-info" role="progressbar" data-percent="<%= (222 * saved.saved_amount_solo_cents).fdiv(saved.goal_amount_solo_cents) %>px">
-                    <div class="progress-bar-social-bar" ></div>
-                  </div>
+                    <div class="progress-bar-social clearfix progress-bar-info" role="progressbar" data-percent="<%= (222 * saved.saved_amount_solo_cents).fdiv(saved.goal_amount_solo_cents) %>px">
+                      <div class="progress-bar-social-bar" ></div>
+                    </div>
 
-              <div class="avatar-social">
-                <% if user.facebook_picture_url %>
-                <span class="fb-avatar"><%= image_tag user.facebook_picture_url, class: "fb-avatar" %></span>
-                <% else %>
-                <%= image_tag "default-user.png" %>
-                <% end %>
+                <div class="avatar-social">
+                  <% if user.facebook_picture_url %>
+                  <span class="fb-avatar"><%= image_tag user.facebook_picture_url, class: "fb-avatar" %></span>
+                  <% else %>
+                  <%= image_tag "default-user.png" %>
+                  <% end %>
+                </div>
               </div>
+              <% end %>
             </div>
-            <% end %>
           </div>
         </div>
       </div>
-    </div>
+    <% end %>
 
     <div class="row">
       <div class="col-xs-12">
