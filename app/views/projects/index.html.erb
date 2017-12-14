@@ -53,7 +53,6 @@
             <div class="card-title"><%= link_to project.name, project_path(project) %></div>
             <div class="card-date">
               📅 <%= project.due_date.strftime("%b %d, %Y ")  %>
-              <p class="completed"><%= "COMPLETED 🏅" if project.status == "Completed" %></p>
             </div>
           </div>
         </div>
@@ -64,7 +63,11 @@
         <div class="progress">
           <div class="progress-bar" role="progressbar" style="width: <%= (project.saved_amount_total_cents.to_f * 100 / project.goal_amount_total_cents) - 4 %>%;" aria-valuenow="<%= project.saved_amount_total_cents %>" aria-valuemin="0" aria-valuemax="<% project.goal_amount_total_cents %>"></div>
         </div>
-        <%= link_to "", project_path(project), class: "#{'card-inactive' if project.status == 'Completed'} card-link" %>
+        <% if project.status == "Completed" %>
+          <%= link_to "COMPLETED", project_path(project), class: "card-inactive card-link" %>
+        <% else %>
+          <%= link_to "", project_path(project), class: "card-link" %>
+        <% end %>
       </div>
       <% end %>
 

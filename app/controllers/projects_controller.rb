@@ -45,12 +45,15 @@ class ProjectsController < ApplicationController
     authorize @project
   end
 
+  # REMEMBER UPDATE DOESN'T CONVERT INTO CENTS WHEN SAVING INTO DB. FIX THIS IN THE EDIT FORM BY REMOVING _CENTS AND THEN FIGURE OUT THE CRASH.
+
   def update
     @project = Project.find(params[:id])
     @userproject = @project.user_projects.where(user: current_user).first
     authorize @project
     if @project.update(project_params)
       # total_saved is equal to sum of solo_saved of all participants
+      @project.update(goal_amount_total_cents: @project.goal_amount_total_cents * 100)
       all_piggies = []
       @project.user_projects.each { |u_p| all_piggies << u_p.saved_amount_solo_cents }
       # update total saved after withdrawal or injection
