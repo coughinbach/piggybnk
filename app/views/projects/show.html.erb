@@ -18,7 +18,7 @@
           <div class="card-amount">🎯 <%= humanized_money(@project.goal_amount_total) %> €</div>
         </div>
         <div class="progress">
-          <div class="progress-bar" role="progressbar" style="width: <%= @project.completion_percentage %>%" aria-valuenow="<%= @project.saved_amount_total_cents %>" aria-valuemin="0" aria-valuemax="<% @project.goal_amount_total_cents %>"></div>
+          <div class="progress-bar" role="progressbar" style="width: <%= @project.completion_percentage - 5%>%" aria-valuenow="<%= @project.saved_amount_total_cents %>" aria-valuemin="0" aria-valuemax="<% @project.goal_amount_total_cents %>"></div>
         </div>
       </div>
     </div>
@@ -35,7 +35,7 @@
         <div class="small-card">
           👛
           <br>
-          <span class= "stats-number"><%= (@project.saved_amount_total_cents.to_f * 100.fdiv(@project.goal_amount_total_cents)).round(0) %>%</span>
+          <span class= "stats-number"><%= (@project.saved_amount_total_cents.to_f * 100.fdiv(@project.goal_amount_total_cents)).round(0) %> %</span>
           <span class="stats-description">saved</span>
         </div>
         <div class="small-card">
@@ -54,7 +54,7 @@
           <div class="card-title" id="text-center">Description</div>
             <div class="description-show">
             <br>
-            <% if @project.description.empty? %>
+            <% if @project.description.nil? || @project.description.empty?%>
               No description for this project yet...
             <% else %>
               <%= @project.description %>
@@ -80,7 +80,6 @@
   <!-- Fallback, marche sans JS -->
   <!--                   <div class="progress-bar-social progress-bar-info" role="progressbar" style="height: <%= (222 * saved.saved_amount_solo_cents).fdiv(saved.goal_amount_solo_cents) %>px;">
                     </div> -->
-
                     <div class="progress-bar-social clearfix progress-bar-info" role="progressbar" data-percent="<%= (222 * saved.saved_amount_solo_cents).fdiv(saved.goal_amount_solo_cents) %>px">
                       <div class="progress-bar-social-bar" ></div>
                     </div>
