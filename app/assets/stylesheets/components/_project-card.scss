@@ -78,12 +78,16 @@
   right: 0;
   width: 100%;
   z-index: 2;
-  background: black;
-  opacity: 0;
+  background: transparent;
 }
 
 .card-inactive {
   z-index: 4;
-  background: $white;
-  opacity: 0.5;
+  background-color: rgba(169, 229, 187, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: bolder;
+  font-size: 35px;
 }
