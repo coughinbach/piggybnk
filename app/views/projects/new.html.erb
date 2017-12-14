@@ -24,7 +24,7 @@
           </div>
           <%= f.input :description, label: "Describe your project" %>
           <%= f.input :due_date, as: :string, label: "When is your piggybnk due?", input_html: {class: "datepicker"} %>
-          <label class="control-label integer required" for="project_goal_amount_total_cents"><abbr title="required">*</abbr>How much do you need? (in €)</label><input class="form-control numeric integer required" step="1" value="0" name="project[goal_amount_total_cents]" id="project_goal_amount_total_cents" type="number">
+          <label class="control-label integer required" for="project_goal_amount_total_cents"><abbr title="required">*</abbr>How much do you need? (in €)</label><input class="form-control numeric integer required" step="1" value="" name="project[goal_amount_total_cents]" id="project_goal_amount_total_cents" type="number">
           <br>
           <label class="control-label check_boxes optional">
             Is this a group project?
