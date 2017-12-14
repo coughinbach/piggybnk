@@ -1,0 +1,39 @@
+.about {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0px;
+  color: $white;
+  b {
+    border-bottom: 5px solid $purple;
+  }
+}
+
+.person {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: $white;
+  width: 40%;
+  box-shadow: 2px 1px 1px rgba(98, 87, 114, .3);
+  padding: 10px 10px 0px 10px;
+  margin: 10px;
+}
+
+.person-photo {
+  background-size: cover;
+  height: 80px;
+  width: 80px;
+  img {
+    border-radius: 50%;
+    border: 5px solid $green;
+  }
+}
+
+.person-name p {
+  color: $purple;
+  margin-top: 3px;
+}
