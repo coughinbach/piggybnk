@@ -9,6 +9,7 @@
           <ul class="dropdown-menu dropdown-menu-right navbar-dropdown-menu">
             <li><%= link_to "Dashboard", dashboard_path %></li>
             <li><%= link_to "Profile", profile_path %></li>
+            <li><%= link_to "About us", about_path %></li>
             <li>
               <%= link_to destroy_user_session_path, method: :delete do %>
                 <%= t(".sign_out", default: "Log out") %>
