@@ -53,7 +53,12 @@
         <div class="description-flex">
           <div class="card-title" id="text-center">Description</div>
             <div class="description-show">
-            <br><%= @project.description %>
+            <br>
+            <% if @project.description.empty? %>
+              No description for this project yet...
+            <% else %>
+              <%= @project.description %>
+            <% end %>
             </div>
         </div>
       </div>
