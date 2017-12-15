@@ -55,8 +55,8 @@ p "users done"
 # p "categories done"
 
 p "creating projects"
-project_solo_completed = Project.create!(name: "Christmas Presents", goal_amount_total_cents: 15000, due_date: (Date.today + 8), category: Category.find_by_name("Gift"), saved_amount_total_cents: 15000, status: "Completed")
-project_group_active = Project.create!(name: "Summer Roadtrip!", goal_amount_total_cents: 160000, due_date: (Date.today + 150), category: Category.find_by_name("Travel"), saved_amount_total_cents: 72100)
+project_solo_completed = Project.create!(name: "Christmas Presents", goal_amount_total_cents: 15000, due_date: (Date.today + 8), category: Category.find_by_name("Gift"), saved_amount_total_cents: 15000, status: "Completed", description: "Getting organized and getting Christmas shopping out of the way early this year.")
+project_group_active = Project.create!(name: "Summer Roadtrip!", goal_amount_total_cents: 160000, due_date: (Date.today + 150), category: Category.find_by_name("Travel"), saved_amount_total_cents: 72100, description: "We coded this app in a little under two weeks, so we're kind of tired. Time to get in the car, and drive straight to Party Town. Road trip!")
 p "projects done"
 
 p "creating userprojects"
