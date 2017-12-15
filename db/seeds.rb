@@ -61,8 +61,8 @@ p "projects done"
 
 p "creating userprojects"
 userproject1 = UserProject.create!(user: user1, project: project_solo_completed, saved_amount_solo_cents: 15000)
-userproject2 = UserProject.create!(user: user1, project: project_group_active, saved_amount_solo_cents: 5000, goal_amount_solo_cents: 40000)
-userproject3 = UserProject.create!(user: user2, project: project_group_active, saved_amount_solo_cents: 25700, goal_amount_solo_cents: 40000)
-userproject4 = UserProject.create!(user: user3, project: project_group_active, saved_amount_solo_cents: 18300, goal_amount_solo_cents: 40000)
-userproject5 = UserProject.create!(user: user4, project: project_group_active, saved_amount_solo_cents: 23100, goal_amount_solo_cents: 40000)
+userproject2 = UserProject.create!(user: user1, project: project_group_active, saved_amount_solo_cents: 5000, goal_amount_solo_cents: 40000, withdrawal_amount_total_cents: 200)
+userproject3 = UserProject.create!(user: user2, project: project_group_active, saved_amount_solo_cents: 25700, goal_amount_solo_cents: 40000, withdrawal_amount_total_cents: 100)
+userproject4 = UserProject.create!(user: user3, project: project_group_active, saved_amount_solo_cents: 18300, goal_amount_solo_cents: 40000, withdrawal_amount_total_cents: 200)
+userproject5 = UserProject.create!(user: user4, project: project_group_active, saved_amount_solo_cents: 23100, goal_amount_solo_cents: 40000, withdrawal_amount_total_cents: 100)
 p "userprojects done"
