@@ -1,1 +1,3 @@
-Rails app generated with [lewagon/rails-templates](https://github.com/lewagon/rails-templates), created by the [Le Wagon coding bootcamp](https://www.lewagon.com) team.
+Our final project for Le Wagon's coding bootcamp.
+
+Piggybnk lets you save up for exciting projects, without it being a chore! Put funds aside for your own goals, or challenge your friends to raise money for group projects.
